@@ -1,0 +1,10 @@
+{
+    "modelPackage": "Client\\Model",
+    "apiPackage": "Client\\Api",
+    "invokerPackage": "ChrisHemmings\\Electio",
+    "packagePath": ".",
+    "srcBasePath": "src",
+    "composerVendorName": "chrishemmings",
+    "composerProjectName": "electio",
+    "artifactVersion": "1.0.0"
+}

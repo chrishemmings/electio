@@ -1,0 +1,4 @@
+/vendor/
+/build/
+autoload.php
+composer.lock
