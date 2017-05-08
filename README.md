@@ -128,7 +128,7 @@ Class | Method | HTTP request | Description
  - [ResponseError](docs/Model/ResponseError.md)
  - [ResponseErrorDetail](docs/Model/ResponseErrorDetail.md)
  - [ShippingTerms](docs/Model/ShippingTerms.md)
- - [Summary](docs/Model/Summary.md)
+ - [SummaryItem](docs/Model/SummaryItem.md)
  - [SummaryResponse](docs/Model/SummaryResponse.md)
  - [TrackingResponse](docs/Model/TrackingResponse.md)
  - [VatRate](docs/Model/VatRate.md)

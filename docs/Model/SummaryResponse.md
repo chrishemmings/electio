@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **number_of_consignments** | **int** |  | [optional] 
-**summary** | [**\ChrisHemmings\Electio\Client\Model\Summary**](Summary.md) |  | [optional] 
+**summary** | [**\ChrisHemmings\Electio\Client\Model\SummaryItem[]**](SummaryItem.md) |  | [optional] 
 **start_from** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **end_to** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

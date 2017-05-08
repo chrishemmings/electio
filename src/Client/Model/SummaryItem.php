@@ -1,6 +1,6 @@
 <?php
 /**
- * SummaryResponse
+ * SummaryItem
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace ChrisHemmings\Electio\Client\Model;
 use \ArrayAccess;
 
 /**
- * SummaryResponse Class Doc Comment
+ * SummaryItem Class Doc Comment
  *
  * @category    Class
  * @package     ChrisHemmings\Electio
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class SummaryResponse implements ArrayAccess
+class SummaryItem implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,17 +47,15 @@ class SummaryResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SummaryResponse';
+    protected static $swaggerModelName = 'SummaryItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'number_of_consignments' => 'int',
-        'summary' => '\ChrisHemmings\Electio\Client\Model\SummaryItem[]',
-        'start_from' => '\DateTime',
-        'end_to' => '\DateTime'
+        'key' => 'string',
+        'value' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -70,10 +68,8 @@ class SummaryResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'number_of_consignments' => 'NumberOfConsignments',
-        'summary' => 'Summary',
-        'start_from' => 'StartFrom',
-        'end_to' => 'EndTo'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
 
@@ -82,10 +78,8 @@ class SummaryResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'number_of_consignments' => 'setNumberOfConsignments',
-        'summary' => 'setSummary',
-        'start_from' => 'setStartFrom',
-        'end_to' => 'setEndTo'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
 
@@ -94,10 +88,8 @@ class SummaryResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'number_of_consignments' => 'getNumberOfConsignments',
-        'summary' => 'getSummary',
-        'start_from' => 'getStartFrom',
-        'end_to' => 'getEndTo'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     public static function attributeMap()
@@ -131,10 +123,8 @@ class SummaryResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['number_of_consignments'] = isset($data['number_of_consignments']) ? $data['number_of_consignments'] : null;
-        $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
-        $this->container['start_from'] = isset($data['start_from']) ? $data['start_from'] : null;
-        $this->container['end_to'] = isset($data['end_to']) ? $data['end_to'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -163,85 +153,43 @@ class SummaryResponse implements ArrayAccess
 
 
     /**
-     * Gets number_of_consignments
+     * Gets key
+     * @return string
+     */
+    public function getKey()
+    {
+        return $this->container['key'];
+    }
+
+    /**
+     * Sets key
+     * @param string $key
+     * @return $this
+     */
+    public function setKey($key)
+    {
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
      * @return int
      */
-    public function getNumberOfConsignments()
+    public function getValue()
     {
-        return $this->container['number_of_consignments'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets number_of_consignments
-     * @param int $number_of_consignments
+     * Sets value
+     * @param int $value
      * @return $this
      */
-    public function setNumberOfConsignments($number_of_consignments)
+    public function setValue($value)
     {
-        $this->container['number_of_consignments'] = $number_of_consignments;
-
-        return $this;
-    }
-
-    /**
-     * Gets summary
-     * @return \ChrisHemmings\Electio\Client\Model\SummaryItem[]
-     */
-    public function getSummary()
-    {
-        return $this->container['summary'];
-    }
-
-    /**
-     * Sets summary
-     * @param \ChrisHemmings\Electio\Client\Model\SummaryItem[] $summary
-     * @return $this
-     */
-    public function setSummary($summary)
-    {
-        $this->container['summary'] = $summary;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_from
-     * @return \DateTime
-     */
-    public function getStartFrom()
-    {
-        return $this->container['start_from'];
-    }
-
-    /**
-     * Sets start_from
-     * @param \DateTime $start_from
-     * @return $this
-     */
-    public function setStartFrom($start_from)
-    {
-        $this->container['start_from'] = $start_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_to
-     * @return \DateTime
-     */
-    public function getEndTo()
-    {
-        return $this->container['end_to'];
-    }
-
-    /**
-     * Sets end_to
-     * @param \DateTime $end_to
-     * @return $this
-     */
-    public function setEndTo($end_to)
-    {
-        $this->container['end_to'] = $end_to;
+        $this->container['value'] = $value;
 
         return $this;
     }
