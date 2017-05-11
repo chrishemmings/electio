@@ -94,7 +94,7 @@ class DeliveryOptionsApi
      *
      * @param string $consignment_reference Consignment to create (required)
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
-     * @return \ChrisHemmings\Electio\Client\Model\InlineResponse200
+     * @return \ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse
      */
     public function getConsignmentDeliveryOptions($consignment_reference)
     {
@@ -109,7 +109,7 @@ class DeliveryOptionsApi
      *
      * @param string $consignment_reference Consignment to create (required)
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
-     * @return array of \ChrisHemmings\Electio\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConsignmentDeliveryOptionsWithHttpInfo($consignment_reference)
     {
@@ -160,15 +160,15 @@ class DeliveryOptionsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ChrisHemmings\Electio\Client\Model\InlineResponse200',
+                '\ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse',
                 '/deliveryoptions/consignment/{consignmentReference}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\InlineResponse200', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -188,7 +188,7 @@ class DeliveryOptionsApi
      *
      * @param \ChrisHemmings\Electio\Client\Model\DeliveryOptionsRequest $allocation Consignment to create (optional)
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
-     * @return \ChrisHemmings\Electio\Client\Model\InlineResponse200
+     * @return \ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse
      */
     public function getDeliveryOptions($allocation = null)
     {
@@ -203,7 +203,7 @@ class DeliveryOptionsApi
      *
      * @param \ChrisHemmings\Electio\Client\Model\DeliveryOptionsRequest $allocation Consignment to create (optional)
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
-     * @return array of \ChrisHemmings\Electio\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDeliveryOptionsWithHttpInfo($allocation = null)
     {
@@ -247,15 +247,15 @@ class DeliveryOptionsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ChrisHemmings\Electio\Client\Model\InlineResponse200',
+                '\ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse',
                 '/deliveryoptions'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\InlineResponse200', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getConsignmentDeliveryOptions**
-> \ChrisHemmings\Electio\Client\Model\InlineResponse200 getConsignmentDeliveryOptions($consignment_reference)
+> \ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse getConsignmentDeliveryOptions($consignment_reference)
 
 Fetch delivery options for a consignment
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ChrisHemmings\Electio\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse**](../Model/DeliveryOptionsResponse.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDeliveryOptions**
-> \ChrisHemmings\Electio\Client\Model\InlineResponse200 getDeliveryOptions($allocation)
+> \ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse getDeliveryOptions($allocation)
 
 Get delivery options for passed consignment details
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ChrisHemmings\Electio\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\ChrisHemmings\Electio\Client\Model\DeliveryOptionsResponse**](../Model/DeliveryOptionsResponse.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# InlineResponse200
+# DeliveryOptionsResponse
 
 ## Properties
 Name | Type | Description | Notes

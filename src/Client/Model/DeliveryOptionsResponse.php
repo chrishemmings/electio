@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * DeliveryOptionsResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace ChrisHemmings\Electio\Client\Model;
 use \ArrayAccess;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * DeliveryOptionsResponse Class Doc Comment
  *
  * @category    Class
  * @package     ChrisHemmings\Electio
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse200 implements ArrayAccess
+class DeliveryOptionsResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class InlineResponse200 implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200';
+    protected static $swaggerModelName = 'DeliveryOptionsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
