@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *ConsignmentApi* | [**getConsignment**](docs/Api/ConsignmentApi.md#getconsignment) | **GET** /consignments/{consignmentReference} | Fetch a consignment by reference
 *ConsignmentApi* | [**getConsignmentSummary**](docs/Api/ConsignmentApi.md#getconsignmentsummary) | **GET** /consignments/summary | Fetch a summary of consignment statuses
 *DeliveryOptionsApi* | [**getConsignmentDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getconsignmentdeliveryoptions) | **GET** /deliveryoptions/consignment/{consignmentReference} | Fetch delivery options for a consignment
+*DeliveryOptionsApi* | [**getDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getdeliveryoptions) | **POST** /deliveryoptions | Get delivery options for passed consignment details
 *DocumentsApi* | [**getConsignmentDocuments**](docs/Api/DocumentsApi.md#getconsignmentdocuments) | **GET** /consignments/docs/{consignmentReference} | Fetch customs documents
 *DocumentsApi* | [**getConsignmentLabels**](docs/Api/DocumentsApi.md#getconsignmentlabels) | **GET** /documents/labels/{consignmentReference} | Fetch labels for a specified consignment
 *TrackingApi* | [**getConsignmentTracking**](docs/Api/TrackingApi.md#getconsignmenttracking) | **GET** /tracking/{consignmentReference} | Fetch tracking information for given reference
@@ -108,6 +109,7 @@ Class | Method | HTTP request | Description
  - [Currency](docs/Model/Currency.md)
  - [CustomsDocumentation](docs/Model/CustomsDocumentation.md)
  - [DeliveryOption](docs/Model/DeliveryOption.md)
+ - [DeliveryOptionsRequest](docs/Model/DeliveryOptionsRequest.md)
  - [DeliveryWindow](docs/Model/DeliveryWindow.md)
  - [Dimensions](docs/Model/Dimensions.md)
  - [EstimatedDeliveryDate](docs/Model/EstimatedDeliveryDate.md)

@@ -180,4 +180,91 @@ class DeliveryOptionsApi
             throw $e;
         }
     }
+
+    /**
+     * Operation getDeliveryOptions
+     *
+     * Get delivery options for passed consignment details
+     *
+     * @param \ChrisHemmings\Electio\Client\Model\DeliveryOptionsRequest $allocation Consignment to create (optional)
+     * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
+     * @return \ChrisHemmings\Electio\Client\Model\InlineResponse200
+     */
+    public function getDeliveryOptions($allocation = null)
+    {
+        list($response) = $this->getDeliveryOptionsWithHttpInfo($allocation);
+        return $response;
+    }
+
+    /**
+     * Operation getDeliveryOptionsWithHttpInfo
+     *
+     * Get delivery options for passed consignment details
+     *
+     * @param \ChrisHemmings\Electio\Client\Model\DeliveryOptionsRequest $allocation Consignment to create (optional)
+     * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
+     * @return array of \ChrisHemmings\Electio\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDeliveryOptionsWithHttpInfo($allocation = null)
+    {
+        // parse inputs
+        $resourcePath = "/deliveryoptions";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($allocation)) {
+            $_tempBody = $allocation;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Ocp-Apim-Subscription-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Ocp-Apim-Subscription-Key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ChrisHemmings\Electio\Client\Model\InlineResponse200',
+                '/deliveryoptions'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\InlineResponse200', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\ResponseError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
 }
