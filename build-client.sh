@@ -5,7 +5,7 @@ rm -rf vendor
 rm -rf docs
 rm -rf composer.lock
 swagger-codegen generate \
-  -i https://api.swaggerhub.com/apis/chrishemmings/Electio/1.0.0 \
+  -i https://api.swaggerhub.com/apis/chrishemmings/Electio/1.0.1 \
   -l php \
   -o ../ElectioClient \
   -c ./swagger-config.json
