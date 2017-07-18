@@ -55,9 +55,10 @@ class ConsignmentLeg implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'leg' => 'int',
-        'tracking_reference' => 'string',
+        'tracking_references' => 'string[]',
         'carrier_reference' => 'string',
-        'carrier_name' => 'string'
+        'carrier_name' => 'string',
+        'carrier_service_reference' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -71,9 +72,10 @@ class ConsignmentLeg implements ArrayAccess
      */
     protected static $attributeMap = [
         'leg' => 'Leg',
-        'tracking_reference' => 'TrackingReference',
+        'tracking_references' => 'TrackingReferences',
         'carrier_reference' => 'CarrierReference',
-        'carrier_name' => 'CarrierName'
+        'carrier_name' => 'CarrierName',
+        'carrier_service_reference' => 'CarrierServiceReference'
     ];
 
 
@@ -83,9 +85,10 @@ class ConsignmentLeg implements ArrayAccess
      */
     protected static $setters = [
         'leg' => 'setLeg',
-        'tracking_reference' => 'setTrackingReference',
+        'tracking_references' => 'setTrackingReferences',
         'carrier_reference' => 'setCarrierReference',
-        'carrier_name' => 'setCarrierName'
+        'carrier_name' => 'setCarrierName',
+        'carrier_service_reference' => 'setCarrierServiceReference'
     ];
 
 
@@ -95,9 +98,10 @@ class ConsignmentLeg implements ArrayAccess
      */
     protected static $getters = [
         'leg' => 'getLeg',
-        'tracking_reference' => 'getTrackingReference',
+        'tracking_references' => 'getTrackingReferences',
         'carrier_reference' => 'getCarrierReference',
-        'carrier_name' => 'getCarrierName'
+        'carrier_name' => 'getCarrierName',
+        'carrier_service_reference' => 'getCarrierServiceReference'
     ];
 
     public static function attributeMap()
@@ -132,9 +136,10 @@ class ConsignmentLeg implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['leg'] = isset($data['leg']) ? $data['leg'] : null;
-        $this->container['tracking_reference'] = isset($data['tracking_reference']) ? $data['tracking_reference'] : null;
+        $this->container['tracking_references'] = isset($data['tracking_references']) ? $data['tracking_references'] : null;
         $this->container['carrier_reference'] = isset($data['carrier_reference']) ? $data['carrier_reference'] : null;
         $this->container['carrier_name'] = isset($data['carrier_name']) ? $data['carrier_name'] : null;
+        $this->container['carrier_service_reference'] = isset($data['carrier_service_reference']) ? $data['carrier_service_reference'] : null;
     }
 
     /**
@@ -184,22 +189,22 @@ class ConsignmentLeg implements ArrayAccess
     }
 
     /**
-     * Gets tracking_reference
-     * @return string
+     * Gets tracking_references
+     * @return string[]
      */
-    public function getTrackingReference()
+    public function getTrackingReferences()
     {
-        return $this->container['tracking_reference'];
+        return $this->container['tracking_references'];
     }
 
     /**
-     * Sets tracking_reference
-     * @param string $tracking_reference
+     * Sets tracking_references
+     * @param string[] $tracking_references
      * @return $this
      */
-    public function setTrackingReference($tracking_reference)
+    public function setTrackingReferences($tracking_references)
     {
-        $this->container['tracking_reference'] = $tracking_reference;
+        $this->container['tracking_references'] = $tracking_references;
 
         return $this;
     }
@@ -242,6 +247,27 @@ class ConsignmentLeg implements ArrayAccess
     public function setCarrierName($carrier_name)
     {
         $this->container['carrier_name'] = $carrier_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets carrier_service_reference
+     * @return string
+     */
+    public function getCarrierServiceReference()
+    {
+        return $this->container['carrier_service_reference'];
+    }
+
+    /**
+     * Sets carrier_service_reference
+     * @param string $carrier_service_reference
+     * @return $this
+     */
+    public function setCarrierServiceReference($carrier_service_reference)
+    {
+        $this->container['carrier_service_reference'] = $carrier_service_reference;
 
         return $this;
     }
