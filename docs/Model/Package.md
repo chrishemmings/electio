@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reference** | **string** |  | [optional] 
+**consignment_legs** | [**\ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]**](ConsignmentLeg.md) |  | [optional] 
 **package_reference_provided_by_customer** | **string** |  | [optional] 
 **weight** | [**\ChrisHemmings\Electio\Client\Model\Weight**](Weight.md) |  | [optional] 
 **dimensions** | [**\ChrisHemmings\Electio\Client\Model\Dimensions**](Dimensions.md) |  | [optional] 

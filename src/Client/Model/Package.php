@@ -55,6 +55,7 @@ class Package implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'reference' => 'string',
+        'consignment_legs' => '\ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]',
         'package_reference_provided_by_customer' => 'string',
         'weight' => '\ChrisHemmings\Electio\Client\Model\Weight',
         'dimensions' => '\ChrisHemmings\Electio\Client\Model\Dimensions',
@@ -77,6 +78,7 @@ class Package implements ArrayAccess
      */
     protected static $attributeMap = [
         'reference' => 'Reference',
+        'consignment_legs' => 'ConsignmentLegs',
         'package_reference_provided_by_customer' => 'PackageReferenceProvidedByCustomer',
         'weight' => 'Weight',
         'dimensions' => 'Dimensions',
@@ -95,6 +97,7 @@ class Package implements ArrayAccess
      */
     protected static $setters = [
         'reference' => 'setReference',
+        'consignment_legs' => 'setConsignmentLegs',
         'package_reference_provided_by_customer' => 'setPackageReferenceProvidedByCustomer',
         'weight' => 'setWeight',
         'dimensions' => 'setDimensions',
@@ -113,6 +116,7 @@ class Package implements ArrayAccess
      */
     protected static $getters = [
         'reference' => 'getReference',
+        'consignment_legs' => 'getConsignmentLegs',
         'package_reference_provided_by_customer' => 'getPackageReferenceProvidedByCustomer',
         'weight' => 'getWeight',
         'dimensions' => 'getDimensions',
@@ -156,6 +160,7 @@ class Package implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
+        $this->container['consignment_legs'] = isset($data['consignment_legs']) ? $data['consignment_legs'] : null;
         $this->container['package_reference_provided_by_customer'] = isset($data['package_reference_provided_by_customer']) ? $data['package_reference_provided_by_customer'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
         $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
@@ -221,6 +226,27 @@ class Package implements ArrayAccess
     public function setReference($reference)
     {
         $this->container['reference'] = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets consignment_legs
+     * @return \ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]
+     */
+    public function getConsignmentLegs()
+    {
+        return $this->container['consignment_legs'];
+    }
+
+    /**
+     * Sets consignment_legs
+     * @param \ChrisHemmings\Electio\Client\Model\ConsignmentLeg[] $consignment_legs
+     * @return $this
+     */
+    public function setConsignmentLegs($consignment_legs)
+    {
+        $this->container['consignment_legs'] = $consignment_legs;
 
         return $this;
     }
