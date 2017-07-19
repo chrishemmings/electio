@@ -59,7 +59,7 @@ class Allocation implements ArrayAccess
         'mpd_carrier_service_reference' => 'string',
         'mpd_carrier_service_name' => 'string',
         'allocate_date' => '\DateTime',
-        'price' => '\ChrisHemmings\Electio\Client\Model\Money'
+        'price' => '\ChrisHemmings\Electio\Client\Model\Rate'
     ];
 
     public static function swaggerTypes()
@@ -279,7 +279,7 @@ class Allocation implements ArrayAccess
 
     /**
      * Gets price
-     * @return \ChrisHemmings\Electio\Client\Model\Money
+     * @return \ChrisHemmings\Electio\Client\Model\Rate
      */
     public function getPrice()
     {
@@ -288,7 +288,7 @@ class Allocation implements ArrayAccess
 
     /**
      * Sets price
-     * @param \ChrisHemmings\Electio\Client\Model\Money $price
+     * @param \ChrisHemmings\Electio\Client\Model\Rate $price
      * @return $this
      */
     public function setPrice($price)

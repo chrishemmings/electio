@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **mpd_carrier_service_reference** | **string** |  | [optional] 
 **mpd_carrier_service_name** | **string** |  | [optional] 
 **allocate_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**price** | [**\ChrisHemmings\Electio\Client\Model\Money**](Money.md) |  | [optional] 
+**price** | [**\ChrisHemmings\Electio\Client\Model\Rate**](Rate.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
