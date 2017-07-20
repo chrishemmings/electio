@@ -56,7 +56,8 @@ class Dimensions implements ArrayAccess
     protected static $swaggerTypes = [
         'height' => 'float',
         'length' => 'float',
-        'width' => 'float'
+        'width' => 'float',
+        'unit' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -71,7 +72,8 @@ class Dimensions implements ArrayAccess
     protected static $attributeMap = [
         'height' => 'Height',
         'length' => 'Length',
-        'width' => 'Width'
+        'width' => 'Width',
+        'unit' => 'Unit'
     ];
 
 
@@ -82,7 +84,8 @@ class Dimensions implements ArrayAccess
     protected static $setters = [
         'height' => 'setHeight',
         'length' => 'setLength',
-        'width' => 'setWidth'
+        'width' => 'setWidth',
+        'unit' => 'setUnit'
     ];
 
 
@@ -93,7 +96,8 @@ class Dimensions implements ArrayAccess
     protected static $getters = [
         'height' => 'getHeight',
         'length' => 'getLength',
-        'width' => 'getWidth'
+        'width' => 'getWidth',
+        'unit' => 'getUnit'
     ];
 
     public static function attributeMap()
@@ -111,8 +115,24 @@ class Dimensions implements ArrayAccess
         return self::$getters;
     }
 
+    const UNIT_CM = 'cm';
+    const UNIT_MM = 'mm';
+    const UNIT_IN = 'in';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getUnitAllowableValues()
+    {
+        return [
+            self::UNIT_CM,
+            self::UNIT_MM,
+            self::UNIT_IN,
+        ];
+    }
     
 
     /**
@@ -130,6 +150,7 @@ class Dimensions implements ArrayAccess
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['length'] = isset($data['length']) ? $data['length'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
     }
 
     /**
@@ -150,6 +171,11 @@ class Dimensions implements ArrayAccess
         if ($this->container['width'] === null) {
             $invalid_properties[] = "'width' can't be null";
         }
+        $allowed_values = ["cm", "mm", "in"];
+        if (!in_array($this->container['unit'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'unit', must be one of 'cm', 'mm', 'in'.";
+        }
+
         return $invalid_properties;
     }
 
@@ -169,6 +195,10 @@ class Dimensions implements ArrayAccess
             return false;
         }
         if ($this->container['width'] === null) {
+            return false;
+        }
+        $allowed_values = ["cm", "mm", "in"];
+        if (!in_array($this->container['unit'], $allowed_values)) {
             return false;
         }
         return true;
@@ -234,6 +264,31 @@ class Dimensions implements ArrayAccess
     public function setWidth($width)
     {
         $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets unit
+     * @return string
+     */
+    public function getUnit()
+    {
+        return $this->container['unit'];
+    }
+
+    /**
+     * Sets unit
+     * @param string $unit
+     * @return $this
+     */
+    public function setUnit($unit)
+    {
+        $allowed_values = array('cm', 'mm', 'in');
+        if (!is_null($unit) && (!in_array($unit, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'unit', must be one of 'cm', 'mm', 'in'");
+        }
+        $this->container['unit'] = $unit;
 
         return $this;
     }
