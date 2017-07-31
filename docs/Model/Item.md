@@ -15,9 +15,8 @@ Name | Type | Description | Notes
 **value** | [**\ChrisHemmings\Electio\Client\Model\Money**](Money.md) |  | 
 **barcode** | [**\ChrisHemmings\Electio\Client\Model\Barcode**](Barcode.md) |  | [optional] 
 **meta_data** | [**\ChrisHemmings\Electio\Client\Model\MetaData[]**](MetaData.md) |  | [optional] 
-**unit_of_quantity** | **int** |  | [optional] 
 **harmonisation_key_words** | **string[]** |  | [optional] 
-**item_unit** | **string** |  | [optional] 
+**unit** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

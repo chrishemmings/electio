@@ -66,9 +66,8 @@ class Item implements ArrayAccess
         'value' => '\ChrisHemmings\Electio\Client\Model\Money',
         'barcode' => '\ChrisHemmings\Electio\Client\Model\Barcode',
         'meta_data' => '\ChrisHemmings\Electio\Client\Model\MetaData[]',
-        'unit_of_quantity' => 'int',
         'harmonisation_key_words' => 'string[]',
-        'item_unit' => 'string'
+        'unit' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -93,9 +92,8 @@ class Item implements ArrayAccess
         'value' => 'Value',
         'barcode' => 'Barcode',
         'meta_data' => 'MetaData',
-        'unit_of_quantity' => 'UnitOfQuantity',
         'harmonisation_key_words' => 'HarmonisationKeyWords',
-        'item_unit' => 'ItemUnit'
+        'unit' => 'Unit'
     ];
 
 
@@ -116,9 +114,8 @@ class Item implements ArrayAccess
         'value' => 'setValue',
         'barcode' => 'setBarcode',
         'meta_data' => 'setMetaData',
-        'unit_of_quantity' => 'setUnitOfQuantity',
         'harmonisation_key_words' => 'setHarmonisationKeyWords',
-        'item_unit' => 'setItemUnit'
+        'unit' => 'setUnit'
     ];
 
 
@@ -139,9 +136,8 @@ class Item implements ArrayAccess
         'value' => 'getValue',
         'barcode' => 'getBarcode',
         'meta_data' => 'getMetaData',
-        'unit_of_quantity' => 'getUnitOfQuantity',
         'harmonisation_key_words' => 'getHarmonisationKeyWords',
-        'item_unit' => 'getItemUnit'
+        'unit' => 'getUnit'
     ];
 
     public static function attributeMap()
@@ -187,9 +183,8 @@ class Item implements ArrayAccess
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['barcode'] = isset($data['barcode']) ? $data['barcode'] : null;
         $this->container['meta_data'] = isset($data['meta_data']) ? $data['meta_data'] : null;
-        $this->container['unit_of_quantity'] = isset($data['unit_of_quantity']) ? $data['unit_of_quantity'] : null;
         $this->container['harmonisation_key_words'] = isset($data['harmonisation_key_words']) ? $data['harmonisation_key_words'] : null;
-        $this->container['item_unit'] = isset($data['item_unit']) ? $data['item_unit'] : null;
+        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
     }
 
     /**
@@ -500,27 +495,6 @@ class Item implements ArrayAccess
     }
 
     /**
-     * Gets unit_of_quantity
-     * @return int
-     */
-    public function getUnitOfQuantity()
-    {
-        return $this->container['unit_of_quantity'];
-    }
-
-    /**
-     * Sets unit_of_quantity
-     * @param int $unit_of_quantity
-     * @return $this
-     */
-    public function setUnitOfQuantity($unit_of_quantity)
-    {
-        $this->container['unit_of_quantity'] = $unit_of_quantity;
-
-        return $this;
-    }
-
-    /**
      * Gets harmonisation_key_words
      * @return string[]
      */
@@ -542,22 +516,22 @@ class Item implements ArrayAccess
     }
 
     /**
-     * Gets item_unit
+     * Gets unit
      * @return string
      */
-    public function getItemUnit()
+    public function getUnit()
     {
-        return $this->container['item_unit'];
+        return $this->container['unit'];
     }
 
     /**
-     * Sets item_unit
-     * @param string $item_unit
+     * Sets unit
+     * @param string $unit
      * @return $this
      */
-    public function setItemUnit($item_unit)
+    public function setUnit($unit)
     {
-        $this->container['item_unit'] = $item_unit;
+        $this->container['unit'] = $unit;
 
         return $this;
     }
