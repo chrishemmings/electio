@@ -94,7 +94,7 @@ class DocumentsApi
      *
      * @param string $consignment_reference Consignment to create (required)
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
-     * @return \ChrisHemmings\Electio\Client\Model\SummaryResponse
+     * @return \ChrisHemmings\Electio\Client\Model\ConsignmentDocumentsResponse
      */
     public function getConsignmentDocuments($consignment_reference)
     {
@@ -109,7 +109,7 @@ class DocumentsApi
      *
      * @param string $consignment_reference Consignment to create (required)
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
-     * @return array of \ChrisHemmings\Electio\Client\Model\SummaryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ChrisHemmings\Electio\Client\Model\ConsignmentDocumentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConsignmentDocumentsWithHttpInfo($consignment_reference)
     {
@@ -160,15 +160,15 @@ class DocumentsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ChrisHemmings\Electio\Client\Model\SummaryResponse',
+                '\ChrisHemmings\Electio\Client\Model\ConsignmentDocumentsResponse',
                 '/consignments/docs/{consignmentReference}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\SummaryResponse', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\ConsignmentDocumentsResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\SummaryResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\ConsignmentDocumentsResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

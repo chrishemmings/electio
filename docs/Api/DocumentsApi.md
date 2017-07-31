@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getConsignmentDocuments**
-> \ChrisHemmings\Electio\Client\Model\SummaryResponse getConsignmentDocuments($consignment_reference)
+> \ChrisHemmings\Electio\Client\Model\ConsignmentDocumentsResponse getConsignmentDocuments($consignment_reference)
 
 Fetch customs documents
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ChrisHemmings\Electio\Client\Model\SummaryResponse**](../Model/SummaryResponse.md)
+[**\ChrisHemmings\Electio\Client\Model\ConsignmentDocumentsResponse**](../Model/ConsignmentDocumentsResponse.md)
 
 ### Authorization
 

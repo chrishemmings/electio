@@ -1,6 +1,6 @@
 <?php
 /**
- * DeliveryOptionsResponse
+ * ConsignmentDocumentsResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace ChrisHemmings\Electio\Client\Model;
 use \ArrayAccess;
 
 /**
- * DeliveryOptionsResponse Class Doc Comment
+ * ConsignmentDocumentsResponse Class Doc Comment
  *
  * @category    Class
  * @package     ChrisHemmings\Electio
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class DeliveryOptionsResponse implements ArrayAccess
+class ConsignmentDocumentsResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,14 +47,16 @@ class DeliveryOptionsResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'DeliveryOptionsResponse';
+    protected static $swaggerModelName = 'ConsignmentDocumentsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delivery_options' => '\ChrisHemmings\Electio\Client\Model\DeliveryOption[]'
+        'commercial_invoice_documents' => '\ChrisHemmings\Electio\Client\Model\Document[]',
+        'cn22_documents' => '\ChrisHemmings\Electio\Client\Model\Document[]',
+        'cn23_documents' => '\ChrisHemmings\Electio\Client\Model\Document[]'
     ];
 
     public static function swaggerTypes()
@@ -67,7 +69,9 @@ class DeliveryOptionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delivery_options' => 'DeliveryOptions'
+        'commercial_invoice_documents' => 'CommercialInvoiceDocuments',
+        'cn22_documents' => 'CN22Documents',
+        'cn23_documents' => 'CN23Documents'
     ];
 
 
@@ -76,7 +80,9 @@ class DeliveryOptionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delivery_options' => 'setDeliveryOptions'
+        'commercial_invoice_documents' => 'setCommercialInvoiceDocuments',
+        'cn22_documents' => 'setCn22Documents',
+        'cn23_documents' => 'setCn23Documents'
     ];
 
 
@@ -85,7 +91,9 @@ class DeliveryOptionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delivery_options' => 'getDeliveryOptions'
+        'commercial_invoice_documents' => 'getCommercialInvoiceDocuments',
+        'cn22_documents' => 'getCn22Documents',
+        'cn23_documents' => 'getCn23Documents'
     ];
 
     public static function attributeMap()
@@ -119,7 +127,9 @@ class DeliveryOptionsResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
+        $this->container['commercial_invoice_documents'] = isset($data['commercial_invoice_documents']) ? $data['commercial_invoice_documents'] : null;
+        $this->container['cn22_documents'] = isset($data['cn22_documents']) ? $data['cn22_documents'] : null;
+        $this->container['cn23_documents'] = isset($data['cn23_documents']) ? $data['cn23_documents'] : null;
     }
 
     /**
@@ -148,22 +158,64 @@ class DeliveryOptionsResponse implements ArrayAccess
 
 
     /**
-     * Gets delivery_options
-     * @return \ChrisHemmings\Electio\Client\Model\DeliveryOption[]
+     * Gets commercial_invoice_documents
+     * @return \ChrisHemmings\Electio\Client\Model\Document[]
      */
-    public function getDeliveryOptions()
+    public function getCommercialInvoiceDocuments()
     {
-        return $this->container['delivery_options'];
+        return $this->container['commercial_invoice_documents'];
     }
 
     /**
-     * Sets delivery_options
-     * @param \ChrisHemmings\Electio\Client\Model\DeliveryOption[] $delivery_options
+     * Sets commercial_invoice_documents
+     * @param \ChrisHemmings\Electio\Client\Model\Document[] $commercial_invoice_documents
      * @return $this
      */
-    public function setDeliveryOptions($delivery_options)
+    public function setCommercialInvoiceDocuments($commercial_invoice_documents)
     {
-        $this->container['delivery_options'] = $delivery_options;
+        $this->container['commercial_invoice_documents'] = $commercial_invoice_documents;
+
+        return $this;
+    }
+
+    /**
+     * Gets cn22_documents
+     * @return \ChrisHemmings\Electio\Client\Model\Document[]
+     */
+    public function getCn22Documents()
+    {
+        return $this->container['cn22_documents'];
+    }
+
+    /**
+     * Sets cn22_documents
+     * @param \ChrisHemmings\Electio\Client\Model\Document[] $cn22_documents
+     * @return $this
+     */
+    public function setCn22Documents($cn22_documents)
+    {
+        $this->container['cn22_documents'] = $cn22_documents;
+
+        return $this;
+    }
+
+    /**
+     * Gets cn23_documents
+     * @return \ChrisHemmings\Electio\Client\Model\Document[]
+     */
+    public function getCn23Documents()
+    {
+        return $this->container['cn23_documents'];
+    }
+
+    /**
+     * Sets cn23_documents
+     * @param \ChrisHemmings\Electio\Client\Model\Document[] $cn23_documents
+     * @return $this
+     */
+    public function setCn23Documents($cn23_documents)
+    {
+        $this->container['cn23_documents'] = $cn23_documents;
 
         return $this;
     }

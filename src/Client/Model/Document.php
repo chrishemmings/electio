@@ -1,6 +1,6 @@
 <?php
 /**
- * DeliveryOptionsResponse
+ * Document
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace ChrisHemmings\Electio\Client\Model;
 use \ArrayAccess;
 
 /**
- * DeliveryOptionsResponse Class Doc Comment
+ * Document Class Doc Comment
  *
  * @category    Class
  * @package     ChrisHemmings\Electio
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class DeliveryOptionsResponse implements ArrayAccess
+class Document implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,14 +47,15 @@ class DeliveryOptionsResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'DeliveryOptionsResponse';
+    protected static $swaggerModelName = 'Document';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delivery_options' => '\ChrisHemmings\Electio\Client\Model\DeliveryOption[]'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -67,7 +68,8 @@ class DeliveryOptionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'delivery_options' => 'DeliveryOptions'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
 
@@ -76,7 +78,8 @@ class DeliveryOptionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'delivery_options' => 'setDeliveryOptions'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
 
@@ -85,7 +88,8 @@ class DeliveryOptionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'delivery_options' => 'getDeliveryOptions'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     public static function attributeMap()
@@ -119,7 +123,8 @@ class DeliveryOptionsResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -148,22 +153,43 @@ class DeliveryOptionsResponse implements ArrayAccess
 
 
     /**
-     * Gets delivery_options
-     * @return \ChrisHemmings\Electio\Client\Model\DeliveryOption[]
+     * Gets key
+     * @return string
      */
-    public function getDeliveryOptions()
+    public function getKey()
     {
-        return $this->container['delivery_options'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets delivery_options
-     * @param \ChrisHemmings\Electio\Client\Model\DeliveryOption[] $delivery_options
+     * Sets key
+     * @param string $key
      * @return $this
      */
-    public function setDeliveryOptions($delivery_options)
+    public function setKey($key)
     {
-        $this->container['delivery_options'] = $delivery_options;
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     * @param string $value
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }
