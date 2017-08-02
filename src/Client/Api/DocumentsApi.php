@@ -266,4 +266,118 @@ class DocumentsApi
             throw $e;
         }
     }
+
+    /**
+     * Operation getPackageDocument
+     *
+     * Fetch specific document type for given Parcel and Package
+     *
+     * @param string $customs_document_type Type of document required (required)
+     * @param string $consignment_reference Consignment reference (required)
+     * @param string $package_reference Package reference (required)
+     * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
+     * @return void
+     */
+    public function getPackageDocument($customs_document_type, $consignment_reference, $package_reference)
+    {
+        list($response) = $this->getPackageDocumentWithHttpInfo($customs_document_type, $consignment_reference, $package_reference);
+        return $response;
+    }
+
+    /**
+     * Operation getPackageDocumentWithHttpInfo
+     *
+     * Fetch specific document type for given Parcel and Package
+     *
+     * @param string $customs_document_type Type of document required (required)
+     * @param string $consignment_reference Consignment reference (required)
+     * @param string $package_reference Package reference (required)
+     * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPackageDocumentWithHttpInfo($customs_document_type, $consignment_reference, $package_reference)
+    {
+        // verify the required parameter 'customs_document_type' is set
+        if ($customs_document_type === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customs_document_type when calling getPackageDocument');
+        }
+        // verify the required parameter 'consignment_reference' is set
+        if ($consignment_reference === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $consignment_reference when calling getPackageDocument');
+        }
+        // verify the required parameter 'package_reference' is set
+        if ($package_reference === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $package_reference when calling getPackageDocument');
+        }
+        // parse inputs
+        $resourcePath = "/consignments/docs/{customsDocumentType}/{consignmentReference}/{packageReference}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/pdf']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($customs_document_type !== null) {
+            $resourcePath = str_replace(
+                "{" . "customsDocumentType" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customs_document_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($consignment_reference !== null) {
+            $resourcePath = str_replace(
+                "{" . "consignmentReference" . "}",
+                $this->apiClient->getSerializer()->toPathValue($consignment_reference),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($package_reference !== null) {
+            $resourcePath = str_replace(
+                "{" . "packageReference" . "}",
+                $this->apiClient->getSerializer()->toPathValue($package_reference),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Ocp-Apim-Subscription-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Ocp-Apim-Subscription-Key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/consignments/docs/{customsDocumentType}/{consignmentReference}/{packageReference}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+
+            throw $e;
+        }
+    }
 }
