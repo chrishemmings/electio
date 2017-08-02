@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **region_code** | **string** |  | [optional] 
 **postcode** | **string** |  | 
 **country** | [**\ChrisHemmings\Electio\Client\Model\Country**](Country.md) |  | 
-**customer_name** | **string** |  | [optional] 
+**company_name** | **string** |  | [optional] 
 **shipping_location_reference** | **string** |  | [optional] 
 **latitude_longitude** | [**\ChrisHemmings\Electio\Client\Model\LatitudeLongitude**](LatitudeLongitude.md) |  | [optional] 
 **special_instructions** | **string** |  | [optional] 

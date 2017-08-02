@@ -63,7 +63,7 @@ class Address implements ArrayAccess
         'region_code' => 'string',
         'postcode' => 'string',
         'country' => '\ChrisHemmings\Electio\Client\Model\Country',
-        'customer_name' => 'string',
+        'company_name' => 'string',
         'shipping_location_reference' => 'string',
         'latitude_longitude' => '\ChrisHemmings\Electio\Client\Model\LatitudeLongitude',
         'special_instructions' => 'string',
@@ -89,7 +89,7 @@ class Address implements ArrayAccess
         'region_code' => 'RegionCode',
         'postcode' => 'Postcode',
         'country' => 'Country',
-        'customer_name' => 'CustomerName',
+        'company_name' => 'CompanyName',
         'shipping_location_reference' => 'ShippingLocationReference',
         'latitude_longitude' => 'LatitudeLongitude',
         'special_instructions' => 'SpecialInstructions',
@@ -111,7 +111,7 @@ class Address implements ArrayAccess
         'region_code' => 'setRegionCode',
         'postcode' => 'setPostcode',
         'country' => 'setCountry',
-        'customer_name' => 'setCustomerName',
+        'company_name' => 'setCompanyName',
         'shipping_location_reference' => 'setShippingLocationReference',
         'latitude_longitude' => 'setLatitudeLongitude',
         'special_instructions' => 'setSpecialInstructions',
@@ -133,7 +133,7 @@ class Address implements ArrayAccess
         'region_code' => 'getRegionCode',
         'postcode' => 'getPostcode',
         'country' => 'getCountry',
-        'customer_name' => 'getCustomerName',
+        'company_name' => 'getCompanyName',
         'shipping_location_reference' => 'getShippingLocationReference',
         'latitude_longitude' => 'getLatitudeLongitude',
         'special_instructions' => 'getSpecialInstructions',
@@ -180,7 +180,7 @@ class Address implements ArrayAccess
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['postcode'] = isset($data['postcode']) ? $data['postcode'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
-        $this->container['customer_name'] = isset($data['customer_name']) ? $data['customer_name'] : null;
+        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
         $this->container['shipping_location_reference'] = isset($data['shipping_location_reference']) ? $data['shipping_location_reference'] : null;
         $this->container['latitude_longitude'] = isset($data['latitude_longitude']) ? $data['latitude_longitude'] : null;
         $this->container['special_instructions'] = isset($data['special_instructions']) ? $data['special_instructions'] : null;
@@ -432,22 +432,22 @@ class Address implements ArrayAccess
     }
 
     /**
-     * Gets customer_name
+     * Gets company_name
      * @return string
      */
-    public function getCustomerName()
+    public function getCompanyName()
     {
-        return $this->container['customer_name'];
+        return $this->container['company_name'];
     }
 
     /**
-     * Sets customer_name
-     * @param string $customer_name
+     * Sets company_name
+     * @param string $company_name
      * @return $this
      */
-    public function setCustomerName($customer_name)
+    public function setCompanyName($company_name)
     {
-        $this->container['customer_name'] = $customer_name;
+        $this->container['company_name'] = $company_name;
 
         return $this;
     }
