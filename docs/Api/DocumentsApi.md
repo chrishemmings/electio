@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPackageDocument**
-> getPackageDocument($customs_document_type, $consignment_reference, $package_reference)
+> string getPackageDocument($customs_document_type, $consignment_reference, $package_reference)
 
 Fetch specific document type for given Parcel and Package
 
@@ -130,7 +130,8 @@ $consignment_reference = "consignment_reference_example"; // string | Consignmen
 $package_reference = "package_reference_example"; // string | Package reference
 
 try {
-    $api_instance->getPackageDocument($customs_document_type, $consignment_reference, $package_reference);
+    $result = $api_instance->getPackageDocument($customs_document_type, $consignment_reference, $package_reference);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->getPackageDocument: ', $e->getMessage(), PHP_EOL;
 }
@@ -147,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -156,7 +157,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/pdf
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

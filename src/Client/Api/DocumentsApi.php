@@ -276,7 +276,7 @@ class DocumentsApi
      * @param string $consignment_reference Consignment reference (required)
      * @param string $package_reference Package reference (required)
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
-     * @return void
+     * @return string
      */
     public function getPackageDocument($customs_document_type, $consignment_reference, $package_reference)
     {
@@ -293,7 +293,7 @@ class DocumentsApi
      * @param string $consignment_reference Consignment reference (required)
      * @param string $package_reference Package reference (required)
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPackageDocumentWithHttpInfo($customs_document_type, $consignment_reference, $package_reference)
     {
@@ -315,7 +315,7 @@ class DocumentsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/pdf']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -368,13 +368,17 @@ class DocumentsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                null,
+                'string',
                 '/consignments/docs/{customsDocumentType}/{consignmentReference}/{packageReference}'
             );
 
-            return [null, $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
             }
 
             throw $e;
