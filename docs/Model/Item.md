@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **meta_data** | [**\ChrisHemmings\Electio\Client\Model\MetaData[]**](MetaData.md) |  | [optional] 
 **harmonisation_key_words** | **string[]** |  | [optional] 
 **unit** | **string** |  | [optional] 
+**quantity** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

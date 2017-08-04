@@ -67,7 +67,8 @@ class Item implements ArrayAccess
         'barcode' => '\ChrisHemmings\Electio\Client\Model\Barcode',
         'meta_data' => '\ChrisHemmings\Electio\Client\Model\MetaData[]',
         'harmonisation_key_words' => 'string[]',
-        'unit' => 'string'
+        'unit' => 'string',
+        'quantity' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -93,7 +94,8 @@ class Item implements ArrayAccess
         'barcode' => 'Barcode',
         'meta_data' => 'MetaData',
         'harmonisation_key_words' => 'HarmonisationKeyWords',
-        'unit' => 'Unit'
+        'unit' => 'Unit',
+        'quantity' => 'Quantity'
     ];
 
 
@@ -115,7 +117,8 @@ class Item implements ArrayAccess
         'barcode' => 'setBarcode',
         'meta_data' => 'setMetaData',
         'harmonisation_key_words' => 'setHarmonisationKeyWords',
-        'unit' => 'setUnit'
+        'unit' => 'setUnit',
+        'quantity' => 'setQuantity'
     ];
 
 
@@ -137,7 +140,8 @@ class Item implements ArrayAccess
         'barcode' => 'getBarcode',
         'meta_data' => 'getMetaData',
         'harmonisation_key_words' => 'getHarmonisationKeyWords',
-        'unit' => 'getUnit'
+        'unit' => 'getUnit',
+        'quantity' => 'getQuantity'
     ];
 
     public static function attributeMap()
@@ -185,6 +189,7 @@ class Item implements ArrayAccess
         $this->container['meta_data'] = isset($data['meta_data']) ? $data['meta_data'] : null;
         $this->container['harmonisation_key_words'] = isset($data['harmonisation_key_words']) ? $data['harmonisation_key_words'] : null;
         $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
     /**
@@ -532,6 +537,27 @@ class Item implements ArrayAccess
     public function setUnit($unit)
     {
         $this->container['unit'] = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->container['quantity'];
+    }
+
+    /**
+     * Sets quantity
+     * @param int $quantity
+     * @return $this
+     */
+    public function setQuantity($quantity)
+    {
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }
