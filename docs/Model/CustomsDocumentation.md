@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **importers_vat_number** | **string** |  | [optional] 
-**category_type** | [**\ChrisHemmings\Electio\Client\Model\CategoryType**](CategoryType.md) |  | 
+**category_type** | **string** |  | 
 **shipper_customs_reference** | **string** |  | [optional] 
 **importers_tax_code** | **string** |  | [optional] 
 **importers_telephone** | **string** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **declaration_date** | [**\DateTime**](\DateTime.md) |  | 
 **office_of_posting** | **string** |  | [optional] 
 **reason_for_export** | **string** |  | [optional] 
-**shipping_terms** | [**\ChrisHemmings\Electio\Client\Model\ShippingTerms**](ShippingTerms.md) |  | [optional] 
+**shipping_terms** | **string** |  | [optional] 
 **shippers_vat_number** | **string** |  | [optional] 
 **designated_person_responsible** | **string** |  | [optional] 
 

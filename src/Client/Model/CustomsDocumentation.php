@@ -55,7 +55,7 @@ class CustomsDocumentation implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'importers_vat_number' => 'string',
-        'category_type' => '\ChrisHemmings\Electio\Client\Model\CategoryType',
+        'category_type' => 'string',
         'shipper_customs_reference' => 'string',
         'importers_tax_code' => 'string',
         'importers_telephone' => 'string',
@@ -67,7 +67,7 @@ class CustomsDocumentation implements ArrayAccess
         'declaration_date' => '\DateTime',
         'office_of_posting' => 'string',
         'reason_for_export' => 'string',
-        'shipping_terms' => '\ChrisHemmings\Electio\Client\Model\ShippingTerms',
+        'shipping_terms' => 'string',
         'shippers_vat_number' => 'string',
         'designated_person_responsible' => 'string'
     ];
@@ -163,9 +163,67 @@ class CustomsDocumentation implements ArrayAccess
         return self::$getters;
     }
 
-    
+    const CATEGORY_TYPE_NONE = 'None';
+    const CATEGORY_TYPE_GIFT = 'Gift';
+    const CATEGORY_TYPE_COMMERCIAL_SAMPLE = 'CommercialSample';
+    const CATEGORY_TYPE_DOCUMENTS = 'Documents';
+    const CATEGORY_TYPE_OTHER = 'Other';
+    const CATEGORY_TYPE_RETURNED_GOODS = 'ReturnedGoods';
+    const SHIPPING_TERMS_NONE = 'None';
+    const SHIPPING_TERMS_EXW = 'EXW';
+    const SHIPPING_TERMS_FCA = 'FCA';
+    const SHIPPING_TERMS_CPT = 'CPT';
+    const SHIPPING_TERMS_CIP = 'CIP';
+    const SHIPPING_TERMS_DAT = 'DAT';
+    const SHIPPING_TERMS_DAP = 'DAP';
+    const SHIPPING_TERMS_DDP = 'DDP';
+    const SHIPPING_TERMS_FAS = 'FAS';
+    const SHIPPING_TERMS_FOB = 'FOB';
+    const SHIPPING_TERMS_CFR = 'CFR';
+    const SHIPPING_TERMS_CIF = 'CIF';
+    const SHIPPING_TERMS_DDU = 'DDU';
 
-    
+
+
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCategoryTypeAllowableValues()
+    {
+        return [
+            self::CATEGORY_TYPE_NONE,
+            self::CATEGORY_TYPE_GIFT,
+            self::CATEGORY_TYPE_COMMERCIAL_SAMPLE,
+            self::CATEGORY_TYPE_DOCUMENTS,
+            self::CATEGORY_TYPE_OTHER,
+            self::CATEGORY_TYPE_RETURNED_GOODS,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getShippingTermsAllowableValues()
+    {
+        return [
+            self::SHIPPING_TERMS_NONE,
+            self::SHIPPING_TERMS_EXW,
+            self::SHIPPING_TERMS_FCA,
+            self::SHIPPING_TERMS_CPT,
+            self::SHIPPING_TERMS_CIP,
+            self::SHIPPING_TERMS_DAT,
+            self::SHIPPING_TERMS_DAP,
+            self::SHIPPING_TERMS_DDP,
+            self::SHIPPING_TERMS_FAS,
+            self::SHIPPING_TERMS_FOB,
+            self::SHIPPING_TERMS_CFR,
+            self::SHIPPING_TERMS_CIF,
+            self::SHIPPING_TERMS_DDU,
+        ];
+    }
+
 
     /**
      * Associative array for storing property values
@@ -209,9 +267,19 @@ class CustomsDocumentation implements ArrayAccess
         if ($this->container['category_type'] === null) {
             $invalid_properties[] = "'category_type' can't be null";
         }
+        $allowed_values = ["None", "Gift", "CommercialSample", "Documents", "Other", "ReturnedGoods"];
+        if (!in_array($this->container['category_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'category_type', must be one of 'None', 'Gift', 'CommercialSample', 'Documents', 'Other', 'ReturnedGoods'.";
+        }
+
         if ($this->container['declaration_date'] === null) {
             $invalid_properties[] = "'declaration_date' can't be null";
         }
+        $allowed_values = ["None", "EXW", "FCA", "CPT", "CIP", "DAT", "DAP", "DDP", "FAS", "FOB", "CFR", "CIF", "DDU"];
+        if (!in_array($this->container['shipping_terms'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'shipping_terms', must be one of 'None', 'EXW', 'FCA', 'CPT', 'CIP', 'DAT', 'DAP', 'DDP', 'FAS', 'FOB', 'CFR', 'CIF', 'DDU'.";
+        }
+
         return $invalid_properties;
     }
 
@@ -227,7 +295,15 @@ class CustomsDocumentation implements ArrayAccess
         if ($this->container['category_type'] === null) {
             return false;
         }
+        $allowed_values = ["None", "Gift", "CommercialSample", "Documents", "Other", "ReturnedGoods"];
+        if (!in_array($this->container['category_type'], $allowed_values)) {
+            return false;
+        }
         if ($this->container['declaration_date'] === null) {
+            return false;
+        }
+        $allowed_values = ["None", "EXW", "FCA", "CPT", "CIP", "DAT", "DAP", "DDP", "FAS", "FOB", "CFR", "CIF", "DDU"];
+        if (!in_array($this->container['shipping_terms'], $allowed_values)) {
             return false;
         }
         return true;
@@ -257,7 +333,7 @@ class CustomsDocumentation implements ArrayAccess
 
     /**
      * Gets category_type
-     * @return \ChrisHemmings\Electio\Client\Model\CategoryType
+     * @return string
      */
     public function getCategoryType()
     {
@@ -266,11 +342,15 @@ class CustomsDocumentation implements ArrayAccess
 
     /**
      * Sets category_type
-     * @param \ChrisHemmings\Electio\Client\Model\CategoryType $category_type
+     * @param string $category_type
      * @return $this
      */
     public function setCategoryType($category_type)
     {
+        $allowed_values = array('None', 'Gift', 'CommercialSample', 'Documents', 'Other', 'ReturnedGoods');
+        if ((!in_array($category_type, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'category_type', must be one of 'None', 'Gift', 'CommercialSample', 'Documents', 'Other', 'ReturnedGoods'");
+        }
         $this->container['category_type'] = $category_type;
 
         return $this;
@@ -509,7 +589,7 @@ class CustomsDocumentation implements ArrayAccess
 
     /**
      * Gets shipping_terms
-     * @return \ChrisHemmings\Electio\Client\Model\ShippingTerms
+     * @return string
      */
     public function getShippingTerms()
     {
@@ -518,11 +598,15 @@ class CustomsDocumentation implements ArrayAccess
 
     /**
      * Sets shipping_terms
-     * @param \ChrisHemmings\Electio\Client\Model\ShippingTerms $shipping_terms
+     * @param string $shipping_terms
      * @return $this
      */
     public function setShippingTerms($shipping_terms)
     {
+        $allowed_values = array('None', 'EXW', 'FCA', 'CPT', 'CIP', 'DAT', 'DAP', 'DDP', 'FAS', 'FOB', 'CFR', 'CIF', 'DDU');
+        if (!is_null($shipping_terms) && (!in_array($shipping_terms, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'shipping_terms', must be one of 'None', 'EXW', 'FCA', 'CPT', 'CIP', 'DAT', 'DAP', 'DDP', 'FAS', 'FOB', 'CFR', 'CIF', 'DDU'");
+        }
         $this->container['shipping_terms'] = $shipping_terms;
 
         return $this;
@@ -627,5 +711,3 @@ class CustomsDocumentation implements ArrayAccess
         return json_encode(\ChrisHemmings\Electio\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
