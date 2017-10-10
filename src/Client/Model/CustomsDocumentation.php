@@ -182,9 +182,9 @@ class CustomsDocumentation implements ArrayAccess
     const SHIPPING_TERMS_CFR = 'CFR';
     const SHIPPING_TERMS_CIF = 'CIF';
     const SHIPPING_TERMS_DDU = 'DDU';
+    
 
-
-
+    
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -200,7 +200,7 @@ class CustomsDocumentation implements ArrayAccess
             self::CATEGORY_TYPE_RETURNED_GOODS,
         ];
     }
-
+    
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -223,7 +223,7 @@ class CustomsDocumentation implements ArrayAccess
             self::SHIPPING_TERMS_DDU,
         ];
     }
-
+    
 
     /**
      * Associative array for storing property values
@@ -711,3 +711,5 @@ class CustomsDocumentation implements ArrayAccess
         return json_encode(\ChrisHemmings\Electio\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

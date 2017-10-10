@@ -81,14 +81,17 @@ All URIs are relative to *https://api.electioapp.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AllocationApi* | [**allocateWithCarrierService**](docs/Api/AllocationApi.md#allocatewithcarrierservice) | **PUT** /allocation/allocateWithCarrierService | Allocate a consignment to a specified delivery service
+*CarriersApi* | [**carriers**](docs/Api/CarriersApi.md#carriers) | **GET** /carriers/getcarriers | Get carriers
 *ConsignmentApi* | [**createConsignment**](docs/Api/ConsignmentApi.md#createconsignment) | **POST** /consignments | Create a consignment
 *ConsignmentApi* | [**getConsignment**](docs/Api/ConsignmentApi.md#getconsignment) | **GET** /consignments/{consignmentReference} | Fetch a consignment by reference
 *ConsignmentApi* | [**getConsignmentSummary**](docs/Api/ConsignmentApi.md#getconsignmentsummary) | **GET** /consignments/summary | Fetch a summary of consignment statuses
+*ConsignmentApi* | [**searchConsignments**](docs/Api/ConsignmentApi.md#searchconsignments) | **GET** /consignments/{take}/{skip} | Search for consignments
 *DeliveryOptionsApi* | [**getConsignmentDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getconsignmentdeliveryoptions) | **GET** /deliveryoptions/consignment/{consignmentReference} | Fetch delivery options for a consignment
 *DeliveryOptionsApi* | [**getDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getdeliveryoptions) | **POST** /deliveryoptions | Get delivery options for passed consignment details
 *DocumentsApi* | [**getConsignmentDocuments**](docs/Api/DocumentsApi.md#getconsignmentdocuments) | **GET** /consignments/docs/{consignmentReference} | Fetch customs documents
 *DocumentsApi* | [**getConsignmentLabels**](docs/Api/DocumentsApi.md#getconsignmentlabels) | **GET** /documents/labels/{consignmentReference} | Fetch labels for a specified consignment
 *DocumentsApi* | [**getPackageDocument**](docs/Api/DocumentsApi.md#getpackagedocument) | **GET** /consignments/docs/{customsDocumentType}/{consignmentReference}/{packageReference} | Fetch specific document type for given Parcel and Package
+*ManifestingApi* | [**manifest**](docs/Api/ManifestingApi.md#manifest) | **PUT** /consignments/manifest | Manifest the passed consignment numbers
 *TrackingApi* | [**getConsignmentTracking**](docs/Api/TrackingApi.md#getconsignmenttracking) | **GET** /tracking/{consignmentReference} | Fetch tracking information for given reference
 
 
@@ -99,11 +102,14 @@ Class | Method | HTTP request | Description
  - [AllocateWithCarrierService](docs/Model/AllocateWithCarrierService.md)
  - [Allocation](docs/Model/Allocation.md)
  - [Barcode](docs/Model/Barcode.md)
+ - [Carrier](docs/Model/Carrier.md)
  - [CategoryType](docs/Model/CategoryType.md)
  - [Consignment](docs/Model/Consignment.md)
  - [ConsignmentDocumentsResponse](docs/Model/ConsignmentDocumentsResponse.md)
  - [ConsignmentLeg](docs/Model/ConsignmentLeg.md)
+ - [ConsignmentSearchResponse](docs/Model/ConsignmentSearchResponse.md)
  - [ConsignmentState](docs/Model/ConsignmentState.md)
+ - [ConsignmentSummary](docs/Model/ConsignmentSummary.md)
  - [Contact](docs/Model/Contact.md)
  - [Country](docs/Model/Country.md)
  - [CreateConsignment](docs/Model/CreateConsignment.md)
@@ -124,6 +130,7 @@ Class | Method | HTTP request | Description
  - [LabelResponse](docs/Model/LabelResponse.md)
  - [LatitudeLongitude](docs/Model/LatitudeLongitude.md)
  - [LocationInformation](docs/Model/LocationInformation.md)
+ - [ManifestConsignmentsRequest](docs/Model/ManifestConsignmentsRequest.md)
  - [MetaData](docs/Model/MetaData.md)
  - [Money](docs/Model/Money.md)
  - [Package](docs/Model/Package.md)

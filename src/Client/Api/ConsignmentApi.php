@@ -351,4 +351,124 @@ class ConsignmentApi
             throw $e;
         }
     }
+
+    /**
+     * Operation searchConsignments
+     *
+     * Search for consignments
+     *
+     * @param int $take Number of records to get? (required)
+     * @param int $skip Number of records to skip (required)
+     * @param string $creference Carrier reference (optional)
+     * @param string $state Consignment state (optional)
+     * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
+     * @return \ChrisHemmings\Electio\Client\Model\ConsignmentSearchResponse[]
+     */
+    public function searchConsignments($take, $skip, $creference = null, $state = null)
+    {
+        list($response) = $this->searchConsignmentsWithHttpInfo($take, $skip, $creference, $state);
+        return $response;
+    }
+
+    /**
+     * Operation searchConsignmentsWithHttpInfo
+     *
+     * Search for consignments
+     *
+     * @param int $take Number of records to get? (required)
+     * @param int $skip Number of records to skip (required)
+     * @param string $creference Carrier reference (optional)
+     * @param string $state Consignment state (optional)
+     * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
+     * @return array of \ChrisHemmings\Electio\Client\Model\ConsignmentSearchResponse[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchConsignmentsWithHttpInfo($take, $skip, $creference = null, $state = null)
+    {
+        // verify the required parameter 'take' is set
+        if ($take === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $take when calling searchConsignments');
+        }
+        // verify the required parameter 'skip' is set
+        if ($skip === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $skip when calling searchConsignments');
+        }
+        // parse inputs
+        $resourcePath = "/consignments/{take}/{skip}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // query params
+        if ($creference !== null) {
+            $queryParams['Creference'] = $this->apiClient->getSerializer()->toQueryValue($creference);
+        }
+        // query params
+        if ($state !== null) {
+            $queryParams['State'] = $this->apiClient->getSerializer()->toQueryValue($state);
+        }
+        // path params
+        if ($take !== null) {
+            $resourcePath = str_replace(
+                "{" . "take" . "}",
+                $this->apiClient->getSerializer()->toPathValue($take),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($skip !== null) {
+            $resourcePath = str_replace(
+                "{" . "skip" . "}",
+                $this->apiClient->getSerializer()->toPathValue($skip),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Ocp-Apim-Subscription-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Ocp-Apim-Subscription-Key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ChrisHemmings\Electio\Client\Model\ConsignmentSearchResponse[]',
+                '/consignments/{take}/{skip}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\ConsignmentSearchResponse[]', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\ConsignmentSearchResponse[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\ResponseError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
 }
