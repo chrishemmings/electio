@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *ConsignmentApi* | [**searchConsignments**](docs/Api/ConsignmentApi.md#searchconsignments) | **GET** /consignments/{take}/{skip} | Search for consignments
 *DeliveryOptionsApi* | [**getConsignmentDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getconsignmentdeliveryoptions) | **GET** /deliveryoptions/consignment/{consignmentReference} | Fetch delivery options for a consignment
 *DeliveryOptionsApi* | [**getDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getdeliveryoptions) | **POST** /deliveryoptions | Get delivery options for passed consignment details
+*DeliveryOptionsApi* | [**getDeliveryOptionsHeartbeat**](docs/Api/DeliveryOptionsApi.md#getdeliveryoptionsheartbeat) | **POST** /deliveryoptions/heartbeat | Get delivery options for passed consignment details
 *DocumentsApi* | [**getConsignmentDocuments**](docs/Api/DocumentsApi.md#getconsignmentdocuments) | **GET** /consignments/docs/{consignmentReference} | Fetch customs documents
 *DocumentsApi* | [**getConsignmentLabels**](docs/Api/DocumentsApi.md#getconsignmentlabels) | **GET** /documents/labels/{consignmentReference} | Fetch labels for a specified consignment
 *DocumentsApi* | [**getPackageDocument**](docs/Api/DocumentsApi.md#getpackagedocument) | **GET** /consignments/docs/{customsDocumentType}/{consignmentReference}/{packageReference} | Fetch specific document type for given Parcel and Package
