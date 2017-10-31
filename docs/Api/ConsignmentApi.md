@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createConsignment**](ConsignmentApi.md#createConsignment) | **POST** /consignments | Create a consignment
 [**getConsignment**](ConsignmentApi.md#getConsignment) | **GET** /consignments/{consignmentReference} | Fetch a consignment by reference
 [**getConsignmentSummary**](ConsignmentApi.md#getConsignmentSummary) | **GET** /consignments/summary | Fetch a summary of consignment statuses
+[**getConsignmentWithMetadata**](ConsignmentApi.md#getConsignmentWithMetadata) | **GET** /consignments/getconsignmentwithmetadata/{consignmentReference} | Fetch a consignment by reference with metadata
 [**searchConsignments**](ConsignmentApi.md#searchConsignments) | **GET** /consignments/{take}/{skip} | Search for consignments
 
 
@@ -65,7 +66,7 @@ Name | Type | Description  | Notes
 
 Fetch a consignment by reference
 
-Fetch a consignment by passing the Election consignment reference
+Fetch a consignment by passing the Electio consignment reference
 
 ### Example
 ```php
@@ -150,6 +151,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ChrisHemmings\Electio\Client\Model\SummaryResponse**](../Model/SummaryResponse.md)
+
+### Authorization
+
+[Ocp-Apim-Subscription-Key](../../README.md#Ocp-Apim-Subscription-Key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getConsignmentWithMetadata**
+> \ChrisHemmings\Electio\Client\Model\Consignment getConsignmentWithMetadata($consignment_reference)
+
+Fetch a consignment by reference with metadata
+
+Fetch a consignment with metadata by passing the Electio consignment reference
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Ocp-Apim-Subscription-Key
+ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
+
+$api_instance = new ChrisHemmings\Electio\Api\ConsignmentApi();
+$consignment_reference = "consignment_reference_example"; // string | Consignment to create
+
+try {
+    $result = $api_instance->getConsignmentWithMetadata($consignment_reference);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConsignmentApi->getConsignmentWithMetadata: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **consignment_reference** | **string**| Consignment to create |
+
+### Return type
+
+[**\ChrisHemmings\Electio\Client\Model\Consignment**](../Model/Consignment.md)
 
 ### Authorization
 

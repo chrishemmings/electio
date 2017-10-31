@@ -353,6 +353,96 @@ class ConsignmentApi
     }
 
     /**
+     * Operation getConsignmentWithMetadata
+     *
+     * Fetch a consignment by reference with metadata
+     *
+     * @param string $consignment_reference Consignment to create (required)
+     * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
+     * @return \ChrisHemmings\Electio\Client\Model\Consignment
+     */
+    public function getConsignmentWithMetadata($consignment_reference)
+    {
+        list($response) = $this->getConsignmentWithMetadataWithHttpInfo($consignment_reference);
+        return $response;
+    }
+
+    /**
+     * Operation getConsignmentWithMetadataWithHttpInfo
+     *
+     * Fetch a consignment by reference with metadata
+     *
+     * @param string $consignment_reference Consignment to create (required)
+     * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
+     * @return array of \ChrisHemmings\Electio\Client\Model\Consignment, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConsignmentWithMetadataWithHttpInfo($consignment_reference)
+    {
+        // verify the required parameter 'consignment_reference' is set
+        if ($consignment_reference === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $consignment_reference when calling getConsignmentWithMetadata');
+        }
+        // parse inputs
+        $resourcePath = "/consignments/getconsignmentwithmetadata/{consignmentReference}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($consignment_reference !== null) {
+            $resourcePath = str_replace(
+                "{" . "consignmentReference" . "}",
+                $this->apiClient->getSerializer()->toPathValue($consignment_reference),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Ocp-Apim-Subscription-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Ocp-Apim-Subscription-Key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ChrisHemmings\Electio\Client\Model\Consignment',
+                '/consignments/getconsignmentwithmetadata/{consignmentReference}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\ChrisHemmings\Electio\Client\Model\Consignment', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ChrisHemmings\Electio\Client\Model\Consignment', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation searchConsignments
      *
      * Search for consignments

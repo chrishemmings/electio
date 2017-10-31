@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *ConsignmentApi* | [**createConsignment**](docs/Api/ConsignmentApi.md#createconsignment) | **POST** /consignments | Create a consignment
 *ConsignmentApi* | [**getConsignment**](docs/Api/ConsignmentApi.md#getconsignment) | **GET** /consignments/{consignmentReference} | Fetch a consignment by reference
 *ConsignmentApi* | [**getConsignmentSummary**](docs/Api/ConsignmentApi.md#getconsignmentsummary) | **GET** /consignments/summary | Fetch a summary of consignment statuses
+*ConsignmentApi* | [**getConsignmentWithMetadata**](docs/Api/ConsignmentApi.md#getconsignmentwithmetadata) | **GET** /consignments/getconsignmentwithmetadata/{consignmentReference} | Fetch a consignment by reference with metadata
 *ConsignmentApi* | [**searchConsignments**](docs/Api/ConsignmentApi.md#searchconsignments) | **GET** /consignments/{take}/{skip} | Search for consignments
 *DeliveryOptionsApi* | [**getConsignmentDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getconsignmentdeliveryoptions) | **GET** /deliveryoptions/consignment/{consignmentReference} | Fetch delivery options for a consignment
 *DeliveryOptionsApi* | [**getDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getdeliveryoptions) | **POST** /deliveryoptions | Get delivery options for passed consignment details
