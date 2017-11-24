@@ -62,6 +62,9 @@ class Consignment implements ArrayAccess
         'collection_date' => '\DateTime',
         'expected_delivery_date' => '\DateTime',
         'scheduled_delivery_date' => '\DateTime',
+        'earliest_delivery_date' => '\DateTime',
+        'latest_delivery_date' => '\DateTime',
+        'requested_delivery_date' => '\ChrisHemmings\Electio\Client\Model\RequestedDeliveryDate',
         'collected_date' => '\DateTime',
         'delivery_date' => '\DateTime',
         'attempted_delivery_date' => '\DateTime',
@@ -101,6 +104,9 @@ class Consignment implements ArrayAccess
         'collection_date' => 'CollectionDate',
         'expected_delivery_date' => 'ExpectedDeliveryDate',
         'scheduled_delivery_date' => 'ScheduledDeliveryDate',
+        'earliest_delivery_date' => 'EarliestDeliveryDate',
+        'latest_delivery_date' => 'LatestDeliveryDate',
+        'requested_delivery_date' => 'RequestedDeliveryDate',
         'collected_date' => 'CollectedDate',
         'delivery_date' => 'DeliveryDate',
         'attempted_delivery_date' => 'AttemptedDeliveryDate',
@@ -136,6 +142,9 @@ class Consignment implements ArrayAccess
         'collection_date' => 'setCollectionDate',
         'expected_delivery_date' => 'setExpectedDeliveryDate',
         'scheduled_delivery_date' => 'setScheduledDeliveryDate',
+        'earliest_delivery_date' => 'setEarliestDeliveryDate',
+        'latest_delivery_date' => 'setLatestDeliveryDate',
+        'requested_delivery_date' => 'setRequestedDeliveryDate',
         'collected_date' => 'setCollectedDate',
         'delivery_date' => 'setDeliveryDate',
         'attempted_delivery_date' => 'setAttemptedDeliveryDate',
@@ -171,6 +180,9 @@ class Consignment implements ArrayAccess
         'collection_date' => 'getCollectionDate',
         'expected_delivery_date' => 'getExpectedDeliveryDate',
         'scheduled_delivery_date' => 'getScheduledDeliveryDate',
+        'earliest_delivery_date' => 'getEarliestDeliveryDate',
+        'latest_delivery_date' => 'getLatestDeliveryDate',
+        'requested_delivery_date' => 'getRequestedDeliveryDate',
         'collected_date' => 'getCollectedDate',
         'delivery_date' => 'getDeliveryDate',
         'attempted_delivery_date' => 'getAttemptedDeliveryDate',
@@ -231,6 +243,9 @@ class Consignment implements ArrayAccess
         $this->container['collection_date'] = isset($data['collection_date']) ? $data['collection_date'] : null;
         $this->container['expected_delivery_date'] = isset($data['expected_delivery_date']) ? $data['expected_delivery_date'] : null;
         $this->container['scheduled_delivery_date'] = isset($data['scheduled_delivery_date']) ? $data['scheduled_delivery_date'] : null;
+        $this->container['earliest_delivery_date'] = isset($data['earliest_delivery_date']) ? $data['earliest_delivery_date'] : null;
+        $this->container['latest_delivery_date'] = isset($data['latest_delivery_date']) ? $data['latest_delivery_date'] : null;
+        $this->container['requested_delivery_date'] = isset($data['requested_delivery_date']) ? $data['requested_delivery_date'] : null;
         $this->container['collected_date'] = isset($data['collected_date']) ? $data['collected_date'] : null;
         $this->container['delivery_date'] = isset($data['delivery_date']) ? $data['delivery_date'] : null;
         $this->container['attempted_delivery_date'] = isset($data['attempted_delivery_date']) ? $data['attempted_delivery_date'] : null;
@@ -441,6 +456,69 @@ class Consignment implements ArrayAccess
     public function setScheduledDeliveryDate($scheduled_delivery_date)
     {
         $this->container['scheduled_delivery_date'] = $scheduled_delivery_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets earliest_delivery_date
+     * @return \DateTime
+     */
+    public function getEarliestDeliveryDate()
+    {
+        return $this->container['earliest_delivery_date'];
+    }
+
+    /**
+     * Sets earliest_delivery_date
+     * @param \DateTime $earliest_delivery_date
+     * @return $this
+     */
+    public function setEarliestDeliveryDate($earliest_delivery_date)
+    {
+        $this->container['earliest_delivery_date'] = $earliest_delivery_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_delivery_date
+     * @return \DateTime
+     */
+    public function getLatestDeliveryDate()
+    {
+        return $this->container['latest_delivery_date'];
+    }
+
+    /**
+     * Sets latest_delivery_date
+     * @param \DateTime $latest_delivery_date
+     * @return $this
+     */
+    public function setLatestDeliveryDate($latest_delivery_date)
+    {
+        $this->container['latest_delivery_date'] = $latest_delivery_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets requested_delivery_date
+     * @return \ChrisHemmings\Electio\Client\Model\RequestedDeliveryDate
+     */
+    public function getRequestedDeliveryDate()
+    {
+        return $this->container['requested_delivery_date'];
+    }
+
+    /**
+     * Sets requested_delivery_date
+     * @param \ChrisHemmings\Electio\Client\Model\RequestedDeliveryDate $requested_delivery_date
+     * @return $this
+     */
+    public function setRequestedDeliveryDate($requested_delivery_date)
+    {
+        $this->container['requested_delivery_date'] = $requested_delivery_date;
 
         return $this;
     }

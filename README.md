@@ -138,6 +138,7 @@ Class | Method | HTTP request | Description
  - [Package](docs/Model/Package.md)
  - [PackageViewModel](docs/Model/PackageViewModel.md)
  - [Rate](docs/Model/Rate.md)
+ - [RequestedDeliveryDate](docs/Model/RequestedDeliveryDate.md)
  - [RequiredDeliveryDate](docs/Model/RequiredDeliveryDate.md)
  - [ResponseError](docs/Model/ResponseError.md)
  - [ResponseErrorDetail](docs/Model/ResponseErrorDetail.md)
