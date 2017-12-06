@@ -134,9 +134,9 @@ class Dimensions implements ArrayAccess
     const UNIT_CM = 'cm';
     const UNIT_MM = 'mm';
     const UNIT_IN = 'in';
-    
 
-    
+
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -149,7 +149,7 @@ class Dimensions implements ArrayAccess
             self::UNIT_IN,
         ];
     }
-    
+
 
     /**
      * Associative array for storing property values
@@ -188,7 +188,7 @@ class Dimensions implements ArrayAccess
             $invalid_properties[] = "'width' can't be null";
         }
         $allowed_values = $this->getUnitAllowableValues();
-        if (!in_array($this->container['unit'], $allowed_values)) {
+        if (!in_array(strtolower($this->container['unit']), $allowed_values)) {
             $invalid_properties[] = sprintf(
                 "invalid value for 'unit', must be one of '%s'",
                 implode("', '", $allowed_values)
@@ -217,7 +217,7 @@ class Dimensions implements ArrayAccess
             return false;
         }
         $allowed_values = $this->getUnitAllowableValues();
-        if (!in_array($this->container['unit'], $allowed_values)) {
+        if (!in_array(strtolower($this->container['unit']), $allowed_values)) {
             return false;
         }
         return true;
@@ -304,7 +304,7 @@ class Dimensions implements ArrayAccess
     public function setUnit($unit)
     {
         $allowed_values = $this->getUnitAllowableValues();
-        if (!is_null($unit) && !in_array($unit, $allowed_values)) {
+        if (!is_null($unit) && !in_array(strtolower($unit), $allowed_values)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'unit', must be one of '%s'",
@@ -374,5 +374,3 @@ class Dimensions implements ArrayAccess
         return json_encode(\ChrisHemmings\Electio\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

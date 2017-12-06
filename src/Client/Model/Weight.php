@@ -121,11 +121,11 @@ class Weight implements ArrayAccess
         return self::$getters;
     }
 
-    const UNIT_KG = 'Kg';
-    const UNIT_LBS = 'Lbs';
-    
+    const UNIT_KG = 'kg';
+    const UNIT_LBS = 'lbs';
 
-    
+
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -137,7 +137,7 @@ class Weight implements ArrayAccess
             self::UNIT_LBS,
         ];
     }
-    
+
 
     /**
      * Associative array for storing property values
@@ -171,7 +171,7 @@ class Weight implements ArrayAccess
             $invalid_properties[] = "'unit' can't be null";
         }
         $allowed_values = $this->getUnitAllowableValues();
-        if (!in_array($this->container['unit'], $allowed_values)) {
+        if (!in_array(strtolower($this->container['unit']), $allowed_values)) {
             $invalid_properties[] = sprintf(
                 "invalid value for 'unit', must be one of '%s'",
                 implode("', '", $allowed_values)
@@ -197,7 +197,7 @@ class Weight implements ArrayAccess
             return false;
         }
         $allowed_values = $this->getUnitAllowableValues();
-        if (!in_array($this->container['unit'], $allowed_values)) {
+        if (!in_array(strtolower($this->container['unit']), $allowed_values)) {
             return false;
         }
         return true;
@@ -242,7 +242,7 @@ class Weight implements ArrayAccess
     public function setUnit($unit)
     {
         $allowed_values = $this->getUnitAllowableValues();
-        if (!in_array($unit, $allowed_values)) {
+        if (!in_array(strtolower($unit), $allowed_values)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'unit', must be one of '%s'",
@@ -312,5 +312,3 @@ class Weight implements ArrayAccess
         return json_encode(\ChrisHemmings\Electio\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
