@@ -58,9 +58,23 @@ class Weight implements ArrayAccess
         'unit' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'value' => 'float',
+        'unit' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
@@ -156,9 +170,12 @@ class Weight implements ArrayAccess
         if ($this->container['unit'] === null) {
             $invalid_properties[] = "'unit' can't be null";
         }
-        $allowed_values = ["Kg", "Lbs"];
+        $allowed_values = $this->getUnitAllowableValues();
         if (!in_array($this->container['unit'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'unit', must be one of 'Kg', 'Lbs'.";
+            $invalid_properties[] = sprintf(
+                "invalid value for 'unit', must be one of '%s'",
+                implode("', '", $allowed_values)
+            );
         }
 
         return $invalid_properties;
@@ -179,7 +196,7 @@ class Weight implements ArrayAccess
         if ($this->container['unit'] === null) {
             return false;
         }
-        $allowed_values = ["Kg", "Lbs"];
+        $allowed_values = $this->getUnitAllowableValues();
         if (!in_array($this->container['unit'], $allowed_values)) {
             return false;
         }
@@ -224,9 +241,14 @@ class Weight implements ArrayAccess
      */
     public function setUnit($unit)
     {
-        $allowed_values = array('Kg', 'Lbs');
-        if ((!in_array($unit, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'unit', must be one of 'Kg', 'Lbs'");
+        $allowed_values = $this->getUnitAllowableValues();
+        if (!in_array($unit, $allowed_values)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'unit', must be one of '%s'",
+                    implode("', '", $allowed_values)
+                )
+            );
         }
         $this->container['unit'] = $unit;
 

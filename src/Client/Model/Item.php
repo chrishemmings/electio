@@ -71,9 +71,36 @@ class Item implements ArrayAccess
         'quantity' => 'int'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'reference' => null,
+        'item_reference_assigned_by_customer' => null,
+        'sku' => null,
+        'description' => null,
+        'model' => null,
+        'country_of_origin' => null,
+        'harmonisation_code' => null,
+        'weight' => null,
+        'dimensions' => null,
+        'value' => null,
+        'barcode' => null,
+        'meta_data' => null,
+        'harmonisation_key_words' => null,
+        'unit' => null,
+        'quantity' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

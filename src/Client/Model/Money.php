@@ -58,9 +58,23 @@ class Money implements ArrayAccess
         'currency' => '\ChrisHemmings\Electio\Client\Model\Currency'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'amount' => 'float',
+        'currency' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

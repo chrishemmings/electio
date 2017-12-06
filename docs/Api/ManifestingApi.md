@@ -39,7 +39,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **consignment_references** | [**\ChrisHemmings\Electio\Client\Model\ManifestConsignmentsRequest**](../Model/\ChrisHemmings\Electio\Client\Model\ManifestConsignmentsRequest.md)| Consignment to create | [optional]
+ **consignment_references** | [**\ChrisHemmings\Electio\Client\Model\ManifestConsignmentsRequest**](../Model/ManifestConsignmentsRequest.md)| Consignment to create | [optional]
 
 ### Return type
 

@@ -125,9 +125,6 @@ class ManifestingApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($consignment_references)) {

@@ -39,7 +39,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **allocation** | [**\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService**](../Model/\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService.md)| Consignment to create | [optional]
+ **allocation** | [**\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService**](../Model/AllocateWithCarrierService.md)| Consignment to create | [optional]
 
 ### Return type
 

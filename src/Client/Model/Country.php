@@ -58,9 +58,23 @@ class Country implements ArrayAccess
         'iso_code' => '\ChrisHemmings\Electio\Client\Model\IsoCode'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'name' => null,
+        'iso_code' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

@@ -86,9 +86,51 @@ class Consignment implements ArrayAccess
         'consignment_legs' => '\ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'date_created' => 'date-time',
+        'customer_reference' => null,
+        'consignment_reference_provided_by_customer' => null,
+        'reference' => null,
+        'requested_collection_date' => 'date-time',
+        'collection_date' => 'date-time',
+        'expected_delivery_date' => 'date-time',
+        'scheduled_delivery_date' => 'date-time',
+        'earliest_delivery_date' => 'date-time',
+        'latest_delivery_date' => 'date-time',
+        'requested_delivery_date' => null,
+        'collected_date' => 'date-time',
+        'delivery_date' => 'date-time',
+        'attempted_delivery_date' => 'date-time',
+        'addresses' => null,
+        'packages' => null,
+        'weight' => null,
+        'value' => null,
+        'allocation' => null,
+        'failed_allocation' => null,
+        'customs_documentation' => null,
+        'consignment_state' => null,
+        'source' => null,
+        'have_labels_ever_been_printed' => null,
+        'date_labels_were_first_printed' => 'date-time',
+        'is_late' => null,
+        'late_for_customer' => null,
+        'meta_data' => null,
+        'location_information' => null,
+        'consignment_legs' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

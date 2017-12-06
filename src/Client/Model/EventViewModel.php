@@ -62,9 +62,27 @@ class EventViewModel implements ArrayAccess
         'carrier_service_name' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'time_stamp' => 'date-time',
+        'code' => null,
+        'description' => null,
+        'signed_by' => null,
+        'location' => null,
+        'carrier_service_name' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

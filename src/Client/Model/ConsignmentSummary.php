@@ -74,9 +74,39 @@ class ConsignmentSummary implements ArrayAccess
         'destination_shipping_location_reference' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'reference' => null,
+        'consignment_reference_provided_by_customer' => null,
+        'date_created' => 'date-time',
+        'state' => null,
+        'shipping_date' => 'date-time',
+        'mpd_carrier_reference' => null,
+        'mpd_carrier_service_reference' => null,
+        'allocation_date' => 'date-time',
+        'shipped_date' => 'date-time',
+        'source' => null,
+        'mpd_carrier_service_name' => null,
+        'mpd_carrier_service_group_name' => null,
+        'mpd_carrier_service_group_reference' => null,
+        'destination_address_line1' => null,
+        'destination_address_town' => null,
+        'destination_address_postcode' => null,
+        'destination_address_country' => null,
+        'destination_shipping_location_reference' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

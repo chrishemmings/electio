@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 *DeliveryOptionsApi* | [**getConsignmentDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getconsignmentdeliveryoptions) | **GET** /deliveryoptions/consignment/{consignmentReference} | Fetch delivery options for a consignment
 *DeliveryOptionsApi* | [**getDeliveryOptions**](docs/Api/DeliveryOptionsApi.md#getdeliveryoptions) | **POST** /deliveryoptions | Get delivery options for passed consignment details
 *DeliveryOptionsApi* | [**getDeliveryOptionsHeartbeat**](docs/Api/DeliveryOptionsApi.md#getdeliveryoptionsheartbeat) | **POST** /deliveryoptions/heartbeat | Get delivery options for passed consignment details
+*DeliveryOptionsApi* | [**selectDeliveryOption**](docs/Api/DeliveryOptionsApi.md#selectdeliveryoption) | **POST** /deliveryoptions/select/{deliveryOptionReference} | Use a delivery option that was generated from a previous call to /deliveryoptions
 *DocumentsApi* | [**getConsignmentDocuments**](docs/Api/DocumentsApi.md#getconsignmentdocuments) | **GET** /consignments/docs/{consignmentReference} | Fetch customs documents
 *DocumentsApi* | [**getConsignmentLabels**](docs/Api/DocumentsApi.md#getconsignmentlabels) | **GET** /documents/labels/{consignmentReference} | Fetch labels for a specified consignment
 *DocumentsApi* | [**getPackageDocument**](docs/Api/DocumentsApi.md#getpackagedocument) | **GET** /consignments/docs/{customsDocumentType}/{consignmentReference}/{packageReference} | Fetch specific document type for given Parcel and Package
@@ -103,6 +104,7 @@ Class | Method | HTTP request | Description
  - [AddressType](docs/Model/AddressType.md)
  - [AllocateWithCarrierService](docs/Model/AllocateWithCarrierService.md)
  - [Allocation](docs/Model/Allocation.md)
+ - [ApiLink](docs/Model/ApiLink.md)
  - [Barcode](docs/Model/Barcode.md)
  - [Carrier](docs/Model/Carrier.md)
  - [CategoryType](docs/Model/CategoryType.md)
@@ -142,6 +144,7 @@ Class | Method | HTTP request | Description
  - [RequiredDeliveryDate](docs/Model/RequiredDeliveryDate.md)
  - [ResponseError](docs/Model/ResponseError.md)
  - [ResponseErrorDetail](docs/Model/ResponseErrorDetail.md)
+ - [SelectDeliveryOptionResponse](docs/Model/SelectDeliveryOptionResponse.md)
  - [ShippingTerms](docs/Model/ShippingTerms.md)
  - [SummaryItem](docs/Model/SummaryItem.md)
  - [SummaryResponse](docs/Model/SummaryResponse.md)

@@ -137,10 +137,7 @@ class DocumentsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -227,10 +224,7 @@ class DocumentsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -345,10 +339,7 @@ class DocumentsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present

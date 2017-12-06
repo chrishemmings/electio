@@ -64,9 +64,29 @@ class CreateConsignment implements ArrayAccess
         'customs_documentation' => '\ChrisHemmings\Electio\Client\Model\CustomsDocumentation'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'consignment_reference_provided_by_customer' => null,
+        'shipping_date' => 'date-time',
+        'requested_delivery_date' => null,
+        'addresses' => null,
+        'packages' => null,
+        'source' => null,
+        'meta_data' => null,
+        'customs_documentation' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

@@ -60,9 +60,25 @@ class ResponseError implements ArrayAccess
         'details' => '\ChrisHemmings\Electio\Client\Model\ResponseErrorDetail[]'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'code' => null,
+        'message' => null,
+        'correlation_id' => null,
+        'details' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

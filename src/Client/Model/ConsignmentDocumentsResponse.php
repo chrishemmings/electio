@@ -59,9 +59,24 @@ class ConsignmentDocumentsResponse implements ArrayAccess
         'cn23_documents' => '\ChrisHemmings\Electio\Client\Model\Document[]'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'commercial_invoice_documents' => null,
+        'cn22_documents' => null,
+        'cn23_documents' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

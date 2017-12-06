@@ -60,9 +60,25 @@ class SummaryResponse implements ArrayAccess
         'end_to' => '\DateTime'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'number_of_consignments' => null,
+        'summary' => null,
+        'start_from' => 'date-time',
+        'end_to' => 'date-time'
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

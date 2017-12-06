@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **consignment** | [**\ChrisHemmings\Electio\Client\Model\CreateConsignment**](../Model/\ChrisHemmings\Electio\Client\Model\CreateConsignment.md)| Consignment to create | [optional]
+ **consignment** | [**\ChrisHemmings\Electio\Client\Model\CreateConsignment**](../Model/CreateConsignment.md)| Consignment to create | [optional]
 
 ### Return type
 
@@ -129,8 +129,8 @@ ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-A
 // ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
 
 $api_instance = new ChrisHemmings\Electio\Api\ConsignmentApi();
-$start_from = new \DateTime(); // \DateTime | Start date range
-$end_at = new \DateTime(); // \DateTime | End date range
+$start_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start date range
+$end_at = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End date range
 
 try {
     $result = $api_instance->getConsignmentSummary($start_from, $end_at);

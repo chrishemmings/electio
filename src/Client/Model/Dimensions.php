@@ -60,9 +60,25 @@ class Dimensions implements ArrayAccess
         'unit' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'height' => 'float',
+        'length' => 'float',
+        'width' => 'float',
+        'unit' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
@@ -171,9 +187,12 @@ class Dimensions implements ArrayAccess
         if ($this->container['width'] === null) {
             $invalid_properties[] = "'width' can't be null";
         }
-        $allowed_values = ["cm", "mm", "in"];
-        if (!in_array(strtolower($this->container['unit']), $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'unit', must be one of 'cm', 'mm', 'in'.";
+        $allowed_values = $this->getUnitAllowableValues();
+        if (!in_array($this->container['unit'], $allowed_values)) {
+            $invalid_properties[] = sprintf(
+                "invalid value for 'unit', must be one of '%s'",
+                implode("', '", $allowed_values)
+            );
         }
 
         return $invalid_properties;
@@ -197,7 +216,7 @@ class Dimensions implements ArrayAccess
         if ($this->container['width'] === null) {
             return false;
         }
-        $allowed_values = ["cm", "mm", "in"];
+        $allowed_values = $this->getUnitAllowableValues();
         if (!in_array($this->container['unit'], $allowed_values)) {
             return false;
         }
@@ -284,9 +303,14 @@ class Dimensions implements ArrayAccess
      */
     public function setUnit($unit)
     {
-        $allowed_values = array('cm', 'mm', 'in');
-        if (!is_null($unit) && (!in_array(strtolower($unit), $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'unit', must be one of 'cm', 'mm', 'in'");
+        $allowed_values = $this->getUnitAllowableValues();
+        if (!is_null($unit) && !in_array($unit, $allowed_values)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'unit', must be one of '%s'",
+                    implode("', '", $allowed_values)
+                )
+            );
         }
         $this->container['unit'] = $unit;
 

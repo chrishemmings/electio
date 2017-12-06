@@ -67,9 +67,32 @@ class Package implements ArrayAccess
         'meta_data' => '\ChrisHemmings\Electio\Client\Model\MetaData[]'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'reference' => null,
+        'consignment_legs' => null,
+        'package_reference_provided_by_customer' => null,
+        'weight' => null,
+        'dimensions' => null,
+        'value' => null,
+        'description' => null,
+        'package_size_reference' => null,
+        'bar_code' => null,
+        'items' => null,
+        'meta_data' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

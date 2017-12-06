@@ -61,9 +61,26 @@ class MetaData implements ArrayAccess
         'bool_value' => 'bool'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'key_value' => null,
+        'string_value' => null,
+        'int_value' => null,
+        'decimal_value' => 'float',
+        'bool_value' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

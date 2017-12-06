@@ -61,9 +61,26 @@ class ConsignmentLeg implements ArrayAccess
         'carrier_service_reference' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'leg' => null,
+        'tracking_references' => null,
+        'carrier_reference' => null,
+        'carrier_name' => null,
+        'carrier_service_reference' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

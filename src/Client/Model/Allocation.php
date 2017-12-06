@@ -62,9 +62,27 @@ class Allocation implements ArrayAccess
         'price' => '\ChrisHemmings\Electio\Client\Model\Rate'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'carrier_service_group_reference' => null,
+        'mpd_carrier_service_group_name' => null,
+        'mpd_carrier_service_reference' => null,
+        'mpd_carrier_service_name' => null,
+        'allocate_date' => 'date-time',
+        'price' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

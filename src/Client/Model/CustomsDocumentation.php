@@ -72,9 +72,37 @@ class CustomsDocumentation implements ArrayAccess
         'designated_person_responsible' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'importers_vat_number' => null,
+        'category_type' => null,
+        'shipper_customs_reference' => null,
+        'importers_tax_code' => null,
+        'importers_telephone' => null,
+        'importers_fax' => null,
+        'cn23_comments' => null,
+        'references_of_attached_invoices' => null,
+        'references_of_attached_licences' => null,
+        'category_type_explanation' => null,
+        'declaration_date' => 'date-time',
+        'office_of_posting' => null,
+        'reason_for_export' => null,
+        'shipping_terms' => null,
+        'shippers_vat_number' => null,
+        'designated_person_responsible' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
@@ -267,17 +295,23 @@ class CustomsDocumentation implements ArrayAccess
         if ($this->container['category_type'] === null) {
             $invalid_properties[] = "'category_type' can't be null";
         }
-        $allowed_values = ["None", "Gift", "CommercialSample", "Documents", "Other", "ReturnedGoods"];
+        $allowed_values = $this->getCategoryTypeAllowableValues();
         if (!in_array($this->container['category_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'category_type', must be one of 'None', 'Gift', 'CommercialSample', 'Documents', 'Other', 'ReturnedGoods'.";
+            $invalid_properties[] = sprintf(
+                "invalid value for 'category_type', must be one of '%s'",
+                implode("', '", $allowed_values)
+            );
         }
 
         if ($this->container['declaration_date'] === null) {
             $invalid_properties[] = "'declaration_date' can't be null";
         }
-        $allowed_values = ["None", "EXW", "FCA", "CPT", "CIP", "DAT", "DAP", "DDP", "FAS", "FOB", "CFR", "CIF", "DDU"];
+        $allowed_values = $this->getShippingTermsAllowableValues();
         if (!in_array($this->container['shipping_terms'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'shipping_terms', must be one of 'None', 'EXW', 'FCA', 'CPT', 'CIP', 'DAT', 'DAP', 'DDP', 'FAS', 'FOB', 'CFR', 'CIF', 'DDU'.";
+            $invalid_properties[] = sprintf(
+                "invalid value for 'shipping_terms', must be one of '%s'",
+                implode("', '", $allowed_values)
+            );
         }
 
         return $invalid_properties;
@@ -295,14 +329,14 @@ class CustomsDocumentation implements ArrayAccess
         if ($this->container['category_type'] === null) {
             return false;
         }
-        $allowed_values = ["None", "Gift", "CommercialSample", "Documents", "Other", "ReturnedGoods"];
+        $allowed_values = $this->getCategoryTypeAllowableValues();
         if (!in_array($this->container['category_type'], $allowed_values)) {
             return false;
         }
         if ($this->container['declaration_date'] === null) {
             return false;
         }
-        $allowed_values = ["None", "EXW", "FCA", "CPT", "CIP", "DAT", "DAP", "DDP", "FAS", "FOB", "CFR", "CIF", "DDU"];
+        $allowed_values = $this->getShippingTermsAllowableValues();
         if (!in_array($this->container['shipping_terms'], $allowed_values)) {
             return false;
         }
@@ -347,9 +381,14 @@ class CustomsDocumentation implements ArrayAccess
      */
     public function setCategoryType($category_type)
     {
-        $allowed_values = array('None', 'Gift', 'CommercialSample', 'Documents', 'Other', 'ReturnedGoods');
-        if ((!in_array($category_type, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'category_type', must be one of 'None', 'Gift', 'CommercialSample', 'Documents', 'Other', 'ReturnedGoods'");
+        $allowed_values = $this->getCategoryTypeAllowableValues();
+        if (!in_array($category_type, $allowed_values)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'category_type', must be one of '%s'",
+                    implode("', '", $allowed_values)
+                )
+            );
         }
         $this->container['category_type'] = $category_type;
 
@@ -603,9 +642,14 @@ class CustomsDocumentation implements ArrayAccess
      */
     public function setShippingTerms($shipping_terms)
     {
-        $allowed_values = array('None', 'EXW', 'FCA', 'CPT', 'CIP', 'DAT', 'DAP', 'DDP', 'FAS', 'FOB', 'CFR', 'CIF', 'DDU');
-        if (!is_null($shipping_terms) && (!in_array($shipping_terms, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'shipping_terms', must be one of 'None', 'EXW', 'FCA', 'CPT', 'CIP', 'DAT', 'DAP', 'DDP', 'FAS', 'FOB', 'CFR', 'CIF', 'DDU'");
+        $allowed_values = $this->getShippingTermsAllowableValues();
+        if (!is_null($shipping_terms) && !in_array($shipping_terms, $allowed_values)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'shipping_terms', must be one of '%s'",
+                    implode("', '", $allowed_values)
+                )
+            );
         }
         $this->container['shipping_terms'] = $shipping_terms;
 

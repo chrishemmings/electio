@@ -59,9 +59,24 @@ class EstimatedDeliveryDate implements ArrayAccess
         'day_of_week' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'date' => 'date-time',
+        'guaranteed' => null,
+        'day_of_week' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

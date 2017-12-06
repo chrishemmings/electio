@@ -57,9 +57,22 @@ class DeliveryOptionsResponse implements ArrayAccess
         'delivery_options' => '\ChrisHemmings\Electio\Client\Model\DeliveryOption[]'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'delivery_options' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

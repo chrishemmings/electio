@@ -58,9 +58,23 @@ class AllocateWithCarrierService implements ArrayAccess
         'consignment_references' => 'string[]'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'mpd_carrier_service_reference' => null,
+        'consignment_references' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

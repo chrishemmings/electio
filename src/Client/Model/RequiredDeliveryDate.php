@@ -58,9 +58,23 @@ class RequiredDeliveryDate implements ArrayAccess
         'is_to_be_exactly_on_the_date_specified' => 'bool'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'date' => 'date-time',
+        'is_to_be_exactly_on_the_date_specified' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

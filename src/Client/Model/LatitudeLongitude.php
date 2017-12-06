@@ -58,9 +58,23 @@ class LatitudeLongitude implements ArrayAccess
         'longitude' => 'float'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'latitude' => 'float',
+        'longitude' => 'float'
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

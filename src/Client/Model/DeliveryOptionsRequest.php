@@ -65,9 +65,30 @@ class DeliveryOptionsRequest implements ArrayAccess
         'delivery_date' => '\DateTime'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'consignment_reference_provided_by_customer' => null,
+        'shipping_date' => 'date-time',
+        'addresses' => null,
+        'packages' => null,
+        'source' => null,
+        'meta_data' => null,
+        'customs_documentation' => null,
+        'guaranteed_only' => null,
+        'delivery_date' => 'date-time'
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

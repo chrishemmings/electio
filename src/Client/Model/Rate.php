@@ -61,9 +61,26 @@ class Rate implements ArrayAccess
         'currency' => '\ChrisHemmings\Electio\Client\Model\Currency'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'net' => 'float',
+        'gross' => 'float',
+        'vat_amount' => 'float',
+        'vat_rate' => null,
+        'currency' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

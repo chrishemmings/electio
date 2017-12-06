@@ -63,9 +63,28 @@ class Contact implements ArrayAccess
         'email' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'title' => null,
+        'first_name' => null,
+        'last_name' => null,
+        'position' => null,
+        'mobile' => null,
+        'land_line' => null,
+        'email' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

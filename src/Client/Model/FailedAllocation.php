@@ -62,9 +62,27 @@ class FailedAllocation implements ArrayAccess
         'message' => 'string'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'carrier_service_group_reference' => null,
+        'mpd_carrier_service_group_name' => null,
+        'mpd_carrier_service_reference' => null,
+        'mpd_carrier_service_name' => null,
+        'attempted_allocation_date' => 'date-time',
+        'message' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

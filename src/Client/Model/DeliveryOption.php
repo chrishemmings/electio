@@ -65,9 +65,30 @@ class DeliveryOption implements ArrayAccess
         'operational_cut_off' => '\DateTime'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'reference' => null,
+        'estimated_delivery_date' => null,
+        'delivery_window' => null,
+        'carrier' => null,
+        'carrier_service' => null,
+        'carrier_service_reference' => null,
+        'price' => null,
+        'allocation_cut_off' => 'date-time',
+        'operational_cut_off' => 'date-time'
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

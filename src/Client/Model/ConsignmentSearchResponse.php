@@ -58,9 +58,23 @@ class ConsignmentSearchResponse implements ArrayAccess
         'consignment_summaries' => '\ChrisHemmings\Electio\Client\Model\ConsignmentSummary[]'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'count' => null,
+        'consignment_summaries' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

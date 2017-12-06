@@ -70,9 +70,35 @@ class Address implements ArrayAccess
         'contact' => '\ChrisHemmings\Electio\Client\Model\Contact'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'address_type' => null,
+        'address_line1' => null,
+        'address_line2' => null,
+        'address_line3' => null,
+        'town' => null,
+        'region' => null,
+        'region_code' => null,
+        'postcode' => null,
+        'country' => null,
+        'company_name' => null,
+        'shipping_location_reference' => null,
+        'latitude_longitude' => null,
+        'special_instructions' => null,
+        'contact' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
