@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **allocateWithCarrierService**
-> allocateWithCarrierService($allocation)
+> allocateWithCarrierService($electio_api_version, $allocation)
 
 Allocate a consignment to a specified delivery service
 
@@ -20,15 +20,21 @@ Allocate a consignment to a specified delivery service which  can be retreived f
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Ocp-Apim-Subscription-Key
-ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
+$config = ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
+// $config = ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
 
-$api_instance = new ChrisHemmings\Electio\Api\AllocationApi();
+$apiInstance = new ChrisHemmings\Electio\Api\AllocationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$electio_api_version = "1.1"; // string | Electio API Version
 $allocation = new \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService(); // \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService | Consignment to create
 
 try {
-    $api_instance->allocateWithCarrierService($allocation);
+    $apiInstance->allocateWithCarrierService($electio_api_version, $allocation);
 } catch (Exception $e) {
     echo 'Exception when calling AllocationApi->allocateWithCarrierService: ', $e->getMessage(), PHP_EOL;
 }
@@ -39,6 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **electio_api_version** | **string**| Electio API Version | [default to 1.1]
  **allocation** | [**\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService**](../Model/AllocateWithCarrierService.md)| Consignment to create | [optional]
 
 ### Return type

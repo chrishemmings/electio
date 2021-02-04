@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getConsignmentTracking**
-> \ChrisHemmings\Electio\Client\Model\TrackingResponse getConsignmentTracking($consignment_reference)
+> \ChrisHemmings\Electio\Client\Model\TrackingResponse getConsignmentTracking($consignment_reference, $electio_api_version)
 
 Fetch tracking information for given reference
 
@@ -20,15 +20,21 @@ Fetch tracking information for given consignment reference
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Ocp-Apim-Subscription-Key
-ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
+$config = ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
+// $config = ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
 
-$api_instance = new ChrisHemmings\Electio\Api\TrackingApi();
+$apiInstance = new ChrisHemmings\Electio\Api\TrackingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $consignment_reference = "consignment_reference_example"; // string | Consignment Reference
+$electio_api_version = "1.1"; // string | Electio API Version
 
 try {
-    $result = $api_instance->getConsignmentTracking($consignment_reference);
+    $result = $apiInstance->getConsignmentTracking($consignment_reference, $electio_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrackingApi->getConsignmentTracking: ', $e->getMessage(), PHP_EOL;
@@ -41,6 +47,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **consignment_reference** | **string**| Consignment Reference |
+ **electio_api_version** | **string**| Electio API Version | [default to 1.1]
 
 ### Return type
 
