@@ -163,8 +163,8 @@ class Weight implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const UNIT_KG = 'Kg';
-    const UNIT_LBS = 'Lbs';
+    const UNIT_KG = 'kg';
+    const UNIT_LBS = 'lbs';
 
 
 
@@ -217,7 +217,7 @@ class Weight implements ModelInterface, ArrayAccess
             $invalidProperties[] = "'unit' can't be null";
         }
         $allowedValues = $this->getUnitAllowableValues();
-        if (!is_null($this->container['unit']) && !in_array($this->container['unit'], $allowedValues, true)) {
+        if (!is_null($this->container['unit']) && !in_array(strtolower($this->container['unit']), $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'unit', must be one of '%s'",
                 implode("', '", $allowedValues)
@@ -283,7 +283,7 @@ class Weight implements ModelInterface, ArrayAccess
     public function setUnit($unit)
     {
         $allowedValues = $this->getUnitAllowableValues();
-        if (!in_array($unit, $allowedValues, true)) {
+        if (!in_array(strtolower($unit), $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'unit', must be one of '%s'",
