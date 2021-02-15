@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **carriers**
-> \ChrisHemmings\Electio\Client\Model\Carrier[] carriers()
+> \ChrisHemmings\Electio\Client\Model\Carrier[] carriers($electio_api_version)
 
 Get carriers
 
@@ -20,14 +20,20 @@ Get carriers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Ocp-Apim-Subscription-Key
-ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
+$config = ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
+// $config = ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
 
-$api_instance = new ChrisHemmings\Electio\Api\CarriersApi();
+$apiInstance = new ChrisHemmings\Electio\Api\CarriersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$electio_api_version = "1.1"; // string | Electio API Version
 
 try {
-    $result = $api_instance->carriers();
+    $result = $apiInstance->carriers($electio_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CarriersApi->carriers: ', $e->getMessage(), PHP_EOL;
@@ -36,7 +42,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **electio_api_version** | **string**| Electio API Version | [default to 1.1]
 
 ### Return type
 

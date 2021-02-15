@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **manifest**
-> manifest($consignment_references)
+> manifest($electio_api_version, $consignment_references)
 
 Manifest the passed consignment numbers
 
@@ -20,15 +20,21 @@ Manifest the passed consignment numbers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Ocp-Apim-Subscription-Key
-ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
+$config = ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKey('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
+// $config = ChrisHemmings\Electio\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Ocp-Apim-Subscription-Key', 'Bearer');
 
-$api_instance = new ChrisHemmings\Electio\Api\ManifestingApi();
+$apiInstance = new ChrisHemmings\Electio\Api\ManifestingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$electio_api_version = "1.1"; // string | Electio API Version
 $consignment_references = new \ChrisHemmings\Electio\Client\Model\ManifestConsignmentsRequest(); // \ChrisHemmings\Electio\Client\Model\ManifestConsignmentsRequest | Consignment to create
 
 try {
-    $api_instance->manifest($consignment_references);
+    $apiInstance->manifest($electio_api_version, $consignment_references);
 } catch (Exception $e) {
     echo 'Exception when calling ManifestingApi->manifest: ', $e->getMessage(), PHP_EOL;
 }
@@ -39,6 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **electio_api_version** | **string**| Electio API Version | [default to 1.1]
  **consignment_references** | [**\ChrisHemmings\Electio\Client\Model\ManifestConsignmentsRequest**](../Model/ManifestConsignmentsRequest.md)| Consignment to create | [optional]
 
 ### Return type
