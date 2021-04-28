@@ -19,6 +19,10 @@ Name | Type | Description | Notes
 **shipping_terms** | **string** |  | [optional] 
 **shippers_vat_number** | **string** |  | [optional] 
 **designated_person_responsible** | **string** |  | [optional] 
+**receivers_tax_code** | **string** |  | [optional] 
+**receivers_vat_number** | **string** |  | [optional] 
+**invoice_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**receivers_shipping_cost** | **float** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
