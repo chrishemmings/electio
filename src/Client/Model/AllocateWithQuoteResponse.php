@@ -1,6 +1,6 @@
 <?php
 /**
- * FailedAllocation
+ * AllocateWithQuoteResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ChrisHemmings\Electio\ObjectSerializer;
 
 /**
- * FailedAllocation Class Doc Comment
+ * AllocateWithQuoteResponse Class Doc Comment
  *
  * @category Class
  * @package  ChrisHemmings\Electio
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FailedAllocation implements ModelInterface, ArrayAccess
+class AllocateWithQuoteResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class FailedAllocation implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FailedAllocation';
+    protected static $swaggerModelName = 'AllocateWithQuoteResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,14 @@ class FailedAllocation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'carrier_service_group_reference' => 'string',
-        'mpd_carrier_service_group_name' => 'string',
-        'mpd_carrier_service_reference' => 'string',
-        'mpd_carrier_service_name' => 'string',
-        'attempted_allocation_date' => '\DateTime',
-        'message' => 'string'
+        'status_code' => 'int',
+        'description' => 'string',
+        'carrier_reference' => 'string',
+        'carrier_name' => 'string',
+        'carrier_service_reference' => 'string',
+        'carrier_service_name' => 'string',
+        'api_links' => '\ChrisHemmings\Electio\Client\Model\ApiLink[]',
+        'consignment_legs' => '\ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]'
     ];
 
     /**
@@ -71,12 +73,14 @@ class FailedAllocation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'carrier_service_group_reference' => null,
-        'mpd_carrier_service_group_name' => null,
-        'mpd_carrier_service_reference' => null,
-        'mpd_carrier_service_name' => null,
-        'attempted_allocation_date' => 'date-time',
-        'message' => null
+        'status_code' => null,
+        'description' => null,
+        'carrier_reference' => null,
+        'carrier_name' => null,
+        'carrier_service_reference' => null,
+        'carrier_service_name' => null,
+        'api_links' => null,
+        'consignment_legs' => null
     ];
 
     /**
@@ -106,12 +110,14 @@ class FailedAllocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'carrier_service_group_reference' => 'CarrierServiceGroupReference',
-        'mpd_carrier_service_group_name' => 'MpdCarrierServiceGroupName',
-        'mpd_carrier_service_reference' => 'MpdCarrierServiceReference',
-        'mpd_carrier_service_name' => 'MpdCarrierServiceName',
-        'attempted_allocation_date' => 'AttemptedAllocationDate',
-        'message' => 'Message'
+        'status_code' => 'StatusCode',
+        'description' => 'Description',
+        'carrier_reference' => 'CarrierReference',
+        'carrier_name' => 'CarrierName',
+        'carrier_service_reference' => 'CarrierServiceReference',
+        'carrier_service_name' => 'CarrierServiceName',
+        'api_links' => 'ApiLinks',
+        'consignment_legs' => 'ConsignmentLegs'
     ];
 
     /**
@@ -120,12 +126,14 @@ class FailedAllocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'carrier_service_group_reference' => 'setCarrierServiceGroupReference',
-        'mpd_carrier_service_group_name' => 'setMpdCarrierServiceGroupName',
-        'mpd_carrier_service_reference' => 'setMpdCarrierServiceReference',
-        'mpd_carrier_service_name' => 'setMpdCarrierServiceName',
-        'attempted_allocation_date' => 'setAttemptedAllocationDate',
-        'message' => 'setMessage'
+        'status_code' => 'setStatusCode',
+        'description' => 'setDescription',
+        'carrier_reference' => 'setCarrierReference',
+        'carrier_name' => 'setCarrierName',
+        'carrier_service_reference' => 'setCarrierServiceReference',
+        'carrier_service_name' => 'setCarrierServiceName',
+        'api_links' => 'setApiLinks',
+        'consignment_legs' => 'setConsignmentLegs'
     ];
 
     /**
@@ -134,12 +142,14 @@ class FailedAllocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'carrier_service_group_reference' => 'getCarrierServiceGroupReference',
-        'mpd_carrier_service_group_name' => 'getMpdCarrierServiceGroupName',
-        'mpd_carrier_service_reference' => 'getMpdCarrierServiceReference',
-        'mpd_carrier_service_name' => 'getMpdCarrierServiceName',
-        'attempted_allocation_date' => 'getAttemptedAllocationDate',
-        'message' => 'getMessage'
+        'status_code' => 'getStatusCode',
+        'description' => 'getDescription',
+        'carrier_reference' => 'getCarrierReference',
+        'carrier_name' => 'getCarrierName',
+        'carrier_service_reference' => 'getCarrierServiceReference',
+        'carrier_service_name' => 'getCarrierServiceName',
+        'api_links' => 'getApiLinks',
+        'consignment_legs' => 'getConsignmentLegs'
     ];
 
     /**
@@ -202,12 +212,14 @@ class FailedAllocation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['carrier_service_group_reference'] = isset($data['carrier_service_group_reference']) ? $data['carrier_service_group_reference'] : null;
-        $this->container['mpd_carrier_service_group_name'] = isset($data['mpd_carrier_service_group_name']) ? $data['mpd_carrier_service_group_name'] : null;
-        $this->container['mpd_carrier_service_reference'] = isset($data['mpd_carrier_service_reference']) ? $data['mpd_carrier_service_reference'] : null;
-        $this->container['mpd_carrier_service_name'] = isset($data['mpd_carrier_service_name']) ? $data['mpd_carrier_service_name'] : null;
-        $this->container['attempted_allocation_date'] = isset($data['attempted_allocation_date']) ? $data['attempted_allocation_date'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['carrier_reference'] = isset($data['carrier_reference']) ? $data['carrier_reference'] : null;
+        $this->container['carrier_name'] = isset($data['carrier_name']) ? $data['carrier_name'] : null;
+        $this->container['carrier_service_reference'] = isset($data['carrier_service_reference']) ? $data['carrier_service_reference'] : null;
+        $this->container['carrier_service_name'] = isset($data['carrier_service_name']) ? $data['carrier_service_name'] : null;
+        $this->container['api_links'] = isset($data['api_links']) ? $data['api_links'] : null;
+        $this->container['consignment_legs'] = isset($data['consignment_legs']) ? $data['consignment_legs'] : null;
     }
 
     /**
@@ -235,145 +247,193 @@ class FailedAllocation implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets carrier_service_group_reference
+     * Gets status_code
      *
-     * @return string
+     * @return int
      */
-    public function getCarrierServiceGroupReference()
+    public function getStatusCode()
     {
-        return $this->container['carrier_service_group_reference'];
+        return $this->container['status_code'];
     }
 
     /**
-     * Sets carrier_service_group_reference
+     * Sets status_code
      *
-     * @param string $carrier_service_group_reference carrier_service_group_reference
+     * @param int $status_code status_code
      *
      * @return $this
      */
-    public function setCarrierServiceGroupReference($carrier_service_group_reference)
+    public function setStatusCode($status_code)
     {
-        $this->container['carrier_service_group_reference'] = $carrier_service_group_reference;
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }
 
     /**
-     * Gets mpd_carrier_service_group_name
+     * Gets description
      *
      * @return string
      */
-    public function getMpdCarrierServiceGroupName()
+    public function getDescription()
     {
-        return $this->container['mpd_carrier_service_group_name'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets mpd_carrier_service_group_name
+     * Sets description
      *
-     * @param string $mpd_carrier_service_group_name mpd_carrier_service_group_name
+     * @param string $description description
      *
      * @return $this
      */
-    public function setMpdCarrierServiceGroupName($mpd_carrier_service_group_name)
+    public function setDescription($description)
     {
-        $this->container['mpd_carrier_service_group_name'] = $mpd_carrier_service_group_name;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets mpd_carrier_service_reference
+     * Gets carrier_reference
      *
      * @return string
      */
-    public function getMpdCarrierServiceReference()
+    public function getCarrierReference()
     {
-        return $this->container['mpd_carrier_service_reference'];
+        return $this->container['carrier_reference'];
     }
 
     /**
-     * Sets mpd_carrier_service_reference
+     * Sets carrier_reference
      *
-     * @param string $mpd_carrier_service_reference mpd_carrier_service_reference
+     * @param string $carrier_reference carrier_reference
      *
      * @return $this
      */
-    public function setMpdCarrierServiceReference($mpd_carrier_service_reference)
+    public function setCarrierReference($carrier_reference)
     {
-        $this->container['mpd_carrier_service_reference'] = $mpd_carrier_service_reference;
+        $this->container['carrier_reference'] = $carrier_reference;
 
         return $this;
     }
 
     /**
-     * Gets mpd_carrier_service_name
+     * Gets carrier_name
      *
      * @return string
      */
-    public function getMpdCarrierServiceName()
+    public function getCarrierName()
     {
-        return $this->container['mpd_carrier_service_name'];
+        return $this->container['carrier_name'];
     }
 
     /**
-     * Sets mpd_carrier_service_name
+     * Sets carrier_name
      *
-     * @param string $mpd_carrier_service_name mpd_carrier_service_name
+     * @param string $carrier_name carrier_name
      *
      * @return $this
      */
-    public function setMpdCarrierServiceName($mpd_carrier_service_name)
+    public function setCarrierName($carrier_name)
     {
-        $this->container['mpd_carrier_service_name'] = $mpd_carrier_service_name;
+        $this->container['carrier_name'] = $carrier_name;
 
         return $this;
     }
 
     /**
-     * Gets attempted_allocation_date
+     * Gets carrier_service_reference
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getAttemptedAllocationDate()
+    public function getCarrierServiceReference()
     {
-        return $this->container['attempted_allocation_date'];
+        return $this->container['carrier_service_reference'];
     }
 
     /**
-     * Sets attempted_allocation_date
+     * Sets carrier_service_reference
      *
-     * @param \DateTime $attempted_allocation_date attempted_allocation_date
+     * @param string $carrier_service_reference carrier_service_reference
      *
      * @return $this
      */
-    public function setAttemptedAllocationDate($attempted_allocation_date)
+    public function setCarrierServiceReference($carrier_service_reference)
     {
-        $this->container['attempted_allocation_date'] = $attempted_allocation_date;
+        $this->container['carrier_service_reference'] = $carrier_service_reference;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets carrier_service_name
      *
      * @return string
      */
-    public function getMessage()
+    public function getCarrierServiceName()
     {
-        return $this->container['message'];
+        return $this->container['carrier_service_name'];
     }
 
     /**
-     * Sets message
+     * Sets carrier_service_name
      *
-     * @param string $message message
+     * @param string $carrier_service_name carrier_service_name
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setCarrierServiceName($carrier_service_name)
     {
-        $this->container['message'] = $message;
+        $this->container['carrier_service_name'] = $carrier_service_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_links
+     *
+     * @return \ChrisHemmings\Electio\Client\Model\ApiLink[]
+     */
+    public function getApiLinks()
+    {
+        return $this->container['api_links'];
+    }
+
+    /**
+     * Sets api_links
+     *
+     * @param \ChrisHemmings\Electio\Client\Model\ApiLink[] $api_links api_links
+     *
+     * @return $this
+     */
+    public function setApiLinks($api_links)
+    {
+        $this->container['api_links'] = $api_links;
+
+        return $this;
+    }
+
+    /**
+     * Gets consignment_legs
+     *
+     * @return \ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]
+     */
+    public function getConsignmentLegs()
+    {
+        return $this->container['consignment_legs'];
+    }
+
+    /**
+     * Sets consignment_legs
+     *
+     * @param \ChrisHemmings\Electio\Client\Model\ConsignmentLeg[] $consignment_legs consignment_legs
+     *
+     * @return $this
+     */
+    public function setConsignmentLegs($consignment_legs)
+    {
+        $this->container['consignment_legs'] = $consignment_legs;
 
         return $this;
     }
