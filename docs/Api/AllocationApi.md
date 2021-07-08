@@ -65,7 +65,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **allocateWithQuote**
-> \ChrisHemmings\Electio\Client\Model\AllocateWithQuoteResponse allocateWithQuote($consignment_reference, $quote_reference)
+> \ChrisHemmings\Electio\Client\Model\AllocateWithQuoteResponse allocateWithQuote($consignment_reference, $quote_reference, $electio_api_version)
 
 Allocate consignment using quote reference
 
@@ -89,9 +89,10 @@ $apiInstance = new ChrisHemmings\Electio\Api\AllocationApi(
 );
 $consignment_reference = "consignment_reference_example"; // string | Consignment Reference
 $quote_reference = "quote_reference_example"; // string | Quote Reference
+$electio_api_version = "1.1"; // string | Electio API Version
 
 try {
-    $result = $apiInstance->allocateWithQuote($consignment_reference, $quote_reference);
+    $result = $apiInstance->allocateWithQuote($consignment_reference, $quote_reference, $electio_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AllocationApi->allocateWithQuote: ', $e->getMessage(), PHP_EOL;
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **consignment_reference** | **string**| Consignment Reference |
  **quote_reference** | **string**| Quote Reference |
+ **electio_api_version** | **string**| Electio API Version | [default to 1.1]
 
 ### Return type
 

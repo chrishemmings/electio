@@ -343,14 +343,15 @@ class AllocationApi
      *
      * @param  string $consignment_reference Consignment Reference (required)
      * @param  string $quote_reference Quote Reference (required)
+     * @param  string $electio_api_version Electio API Version (required)
      *
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ChrisHemmings\Electio\Client\Model\AllocateWithQuoteResponse
      */
-    public function allocateWithQuote($consignment_reference, $quote_reference)
+    public function allocateWithQuote($consignment_reference, $quote_reference, $electio_api_version)
     {
-        list($response) = $this->allocateWithQuoteWithHttpInfo($consignment_reference, $quote_reference);
+        list($response) = $this->allocateWithQuoteWithHttpInfo($consignment_reference, $quote_reference, $electio_api_version);
         return $response;
     }
 
@@ -361,15 +362,16 @@ class AllocationApi
      *
      * @param  string $consignment_reference Consignment Reference (required)
      * @param  string $quote_reference Quote Reference (required)
+     * @param  string $electio_api_version Electio API Version (required)
      *
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ChrisHemmings\Electio\Client\Model\AllocateWithQuoteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function allocateWithQuoteWithHttpInfo($consignment_reference, $quote_reference)
+    public function allocateWithQuoteWithHttpInfo($consignment_reference, $quote_reference, $electio_api_version)
     {
         $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithQuoteResponse';
-        $request = $this->allocateWithQuoteRequest($consignment_reference, $quote_reference);
+        $request = $this->allocateWithQuoteRequest($consignment_reference, $quote_reference, $electio_api_version);
 
         try {
             $options = $this->createHttpClientOption();
@@ -437,13 +439,14 @@ class AllocationApi
      *
      * @param  string $consignment_reference Consignment Reference (required)
      * @param  string $quote_reference Quote Reference (required)
+     * @param  string $electio_api_version Electio API Version (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function allocateWithQuoteAsync($consignment_reference, $quote_reference)
+    public function allocateWithQuoteAsync($consignment_reference, $quote_reference, $electio_api_version)
     {
-        return $this->allocateWithQuoteAsyncWithHttpInfo($consignment_reference, $quote_reference)
+        return $this->allocateWithQuoteAsyncWithHttpInfo($consignment_reference, $quote_reference, $electio_api_version)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -458,14 +461,15 @@ class AllocationApi
      *
      * @param  string $consignment_reference Consignment Reference (required)
      * @param  string $quote_reference Quote Reference (required)
+     * @param  string $electio_api_version Electio API Version (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function allocateWithQuoteAsyncWithHttpInfo($consignment_reference, $quote_reference)
+    public function allocateWithQuoteAsyncWithHttpInfo($consignment_reference, $quote_reference, $electio_api_version)
     {
         $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithQuoteResponse';
-        $request = $this->allocateWithQuoteRequest($consignment_reference, $quote_reference);
+        $request = $this->allocateWithQuoteRequest($consignment_reference, $quote_reference, $electio_api_version);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -509,11 +513,12 @@ class AllocationApi
      *
      * @param  string $consignment_reference Consignment Reference (required)
      * @param  string $quote_reference Quote Reference (required)
+     * @param  string $electio_api_version Electio API Version (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function allocateWithQuoteRequest($consignment_reference, $quote_reference)
+    protected function allocateWithQuoteRequest($consignment_reference, $quote_reference, $electio_api_version)
     {
         // verify the required parameter 'consignment_reference' is set
         if ($consignment_reference === null || (is_array($consignment_reference) && count($consignment_reference) === 0)) {
@@ -527,6 +532,12 @@ class AllocationApi
                 'Missing the required parameter $quote_reference when calling allocateWithQuote'
             );
         }
+        // verify the required parameter 'electio_api_version' is set
+        if ($electio_api_version === null || (is_array($electio_api_version) && count($electio_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $electio_api_version when calling allocateWithQuote'
+            );
+        }
 
         $resourcePath = '/allocation/{consignmentReference}/allocatewithquote/{quoteReference}';
         $formParams = [];
@@ -535,6 +546,10 @@ class AllocationApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($electio_api_version !== null) {
+            $headerParams['electio-api-version'] = ObjectSerializer::toHeaderValue($electio_api_version);
+        }
 
         // path params
         if ($consignment_reference !== null) {
