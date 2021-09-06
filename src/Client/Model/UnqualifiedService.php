@@ -1,6 +1,6 @@
 <?php
 /**
- * VatRate
+ * UnqualifiedService
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ChrisHemmings\Electio\ObjectSerializer;
 
 /**
- * VatRate Class Doc Comment
+ * UnqualifiedService Class Doc Comment
  *
  * @category Class
  * @package  ChrisHemmings\Electio
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VatRate implements ModelInterface, ArrayAccess
+class UnqualifiedService implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class VatRate implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VatRate';
+    protected static $swaggerModelName = 'UnqualifiedService';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,12 @@ class VatRate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'rate' => 'float',
-        'type' => '\ChrisHemmings\Electio\Client\Model\VatRateType',
-        'country_iso_code' => 'string'
+        'available' => 'bool',
+        'rates' => 'bool',
+        'mpd_carrier_service' => 'string',
+        'carrier_reference' => 'string',
+        'mpd_carrier_service_reference' => 'string',
+        'exclusion_reason' => 'string'
     ];
 
     /**
@@ -68,9 +71,12 @@ class VatRate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'rate' => 'float',
-        'type' => null,
-        'country_iso_code' => null
+        'available' => null,
+        'rates' => null,
+        'mpd_carrier_service' => null,
+        'carrier_reference' => null,
+        'mpd_carrier_service_reference' => null,
+        'exclusion_reason' => null
     ];
 
     /**
@@ -100,9 +106,12 @@ class VatRate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rate' => 'Rate',
-        'type' => 'Type',
-        'country_iso_code' => 'CountryIsoCode'
+        'available' => 'Available',
+        'rates' => 'Rates',
+        'mpd_carrier_service' => 'MpdCarrierService',
+        'carrier_reference' => 'CarrierReference',
+        'mpd_carrier_service_reference' => 'MpdCarrierServiceReference',
+        'exclusion_reason' => 'ExclusionReason'
     ];
 
     /**
@@ -111,9 +120,12 @@ class VatRate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rate' => 'setRate',
-        'type' => 'setType',
-        'country_iso_code' => 'setCountryIsoCode'
+        'available' => 'setAvailable',
+        'rates' => 'setRates',
+        'mpd_carrier_service' => 'setMpdCarrierService',
+        'carrier_reference' => 'setCarrierReference',
+        'mpd_carrier_service_reference' => 'setMpdCarrierServiceReference',
+        'exclusion_reason' => 'setExclusionReason'
     ];
 
     /**
@@ -122,9 +134,12 @@ class VatRate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rate' => 'getRate',
-        'type' => 'getType',
-        'country_iso_code' => 'getCountryIsoCode'
+        'available' => 'getAvailable',
+        'rates' => 'getRates',
+        'mpd_carrier_service' => 'getMpdCarrierService',
+        'carrier_reference' => 'getCarrierReference',
+        'mpd_carrier_service_reference' => 'getMpdCarrierServiceReference',
+        'exclusion_reason' => 'getExclusionReason'
     ];
 
     /**
@@ -187,9 +202,12 @@ class VatRate implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['country_iso_code'] = isset($data['country_iso_code']) ? $data['country_iso_code'] : null;
+        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
+        $this->container['rates'] = isset($data['rates']) ? $data['rates'] : null;
+        $this->container['mpd_carrier_service'] = isset($data['mpd_carrier_service']) ? $data['mpd_carrier_service'] : null;
+        $this->container['carrier_reference'] = isset($data['carrier_reference']) ? $data['carrier_reference'] : null;
+        $this->container['mpd_carrier_service_reference'] = isset($data['mpd_carrier_service_reference']) ? $data['mpd_carrier_service_reference'] : null;
+        $this->container['exclusion_reason'] = isset($data['exclusion_reason']) ? $data['exclusion_reason'] : null;
     }
 
     /**
@@ -217,73 +235,145 @@ class VatRate implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rate
+     * Gets available
      *
-     * @return float
+     * @return bool
      */
-    public function getRate()
+    public function getAvailable()
     {
-        return $this->container['rate'];
+        return $this->container['available'];
     }
 
     /**
-     * Sets rate
+     * Sets available
      *
-     * @param float $rate rate
+     * @param bool $available available
      *
      * @return $this
      */
-    public function setRate($rate)
+    public function setAvailable($available)
     {
-        $this->container['rate'] = $rate;
+        $this->container['available'] = $available;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets rates
      *
-     * @return \ChrisHemmings\Electio\Client\Model\VatRateType
+     * @return bool
      */
-    public function getType()
+    public function getRates()
     {
-        return $this->container['type'];
+        return $this->container['rates'];
     }
 
     /**
-     * Sets type
+     * Sets rates
      *
-     * @param \ChrisHemmings\Electio\Client\Model\VatRateType $type type
+     * @param bool $rates rates
      *
      * @return $this
      */
-    public function setType($type)
+    public function setRates($rates)
     {
-        $this->container['type'] = $type;
+        $this->container['rates'] = $rates;
 
         return $this;
     }
 
     /**
-     * Gets country_iso_code
+     * Gets mpd_carrier_service
      *
      * @return string
      */
-    public function getCountryIsoCode()
+    public function getMpdCarrierService()
     {
-        return $this->container['country_iso_code'];
+        return $this->container['mpd_carrier_service'];
     }
 
     /**
-     * Sets country_iso_code
+     * Sets mpd_carrier_service
      *
-     * @param string $country_iso_code country_iso_code
+     * @param string $mpd_carrier_service mpd_carrier_service
      *
      * @return $this
      */
-    public function setCountryIsoCode($country_iso_code)
+    public function setMpdCarrierService($mpd_carrier_service)
     {
-        $this->container['country_iso_code'] = $country_iso_code;
+        $this->container['mpd_carrier_service'] = $mpd_carrier_service;
+
+        return $this;
+    }
+
+    /**
+     * Gets carrier_reference
+     *
+     * @return string
+     */
+    public function getCarrierReference()
+    {
+        return $this->container['carrier_reference'];
+    }
+
+    /**
+     * Sets carrier_reference
+     *
+     * @param string $carrier_reference carrier_reference
+     *
+     * @return $this
+     */
+    public function setCarrierReference($carrier_reference)
+    {
+        $this->container['carrier_reference'] = $carrier_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets mpd_carrier_service_reference
+     *
+     * @return string
+     */
+    public function getMpdCarrierServiceReference()
+    {
+        return $this->container['mpd_carrier_service_reference'];
+    }
+
+    /**
+     * Sets mpd_carrier_service_reference
+     *
+     * @param string $mpd_carrier_service_reference mpd_carrier_service_reference
+     *
+     * @return $this
+     */
+    public function setMpdCarrierServiceReference($mpd_carrier_service_reference)
+    {
+        $this->container['mpd_carrier_service_reference'] = $mpd_carrier_service_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclusion_reason
+     *
+     * @return string
+     */
+    public function getExclusionReason()
+    {
+        return $this->container['exclusion_reason'];
+    }
+
+    /**
+     * Sets exclusion_reason
+     *
+     * @param string $exclusion_reason exclusion_reason
+     *
+     * @return $this
+     */
+    public function setExclusionReason($exclusion_reason)
+    {
+        $this->container['exclusion_reason'] = $exclusion_reason;
 
         return $this;
     }
