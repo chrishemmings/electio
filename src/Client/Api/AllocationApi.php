@@ -93,7 +93,7 @@ class AllocationApi
      * Allocate a consignment to a specified delivery service
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
      *
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -111,7 +111,7 @@ class AllocationApi
      * Allocate a consignment to a specified delivery service
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
      *
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -195,7 +195,7 @@ class AllocationApi
      * Allocate a consignment to a specified delivery service
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -216,7 +216,7 @@ class AllocationApi
      * Allocate a consignment to a specified delivery service
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -267,7 +267,7 @@ class AllocationApi
      * Create request for operation 'allocateWithCarrierService'
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
