@@ -97,7 +97,7 @@ class AllocationApi
      *
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse
+     * @return \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray
      */
     public function allocateWithCarrierService($electio_api_version, $allocation = null)
     {
@@ -115,11 +115,11 @@ class AllocationApi
      *
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray, HTTP status code, HTTP response headers (array of strings)
      */
     public function allocateWithCarrierServiceWithHttpInfo($electio_api_version, $allocation = null)
     {
-        $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse';
+        $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray';
         $request = $this->allocateWithCarrierServiceRequest($electio_api_version, $allocation);
 
         try {
@@ -171,7 +171,7 @@ class AllocationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse',
+                        '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class AllocationApi
      */
     public function allocateWithCarrierServiceAsyncWithHttpInfo($electio_api_version, $allocation = null)
     {
-        $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse';
+        $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray';
         $request = $this->allocateWithCarrierServiceRequest($electio_api_version, $allocation);
 
         return $this->client
