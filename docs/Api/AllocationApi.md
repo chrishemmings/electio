@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **allocateWithCarrierService**
-> \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse allocateWithCarrierService($electio_api_version, $allocation)
+> \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray allocateWithCarrierService($electio_api_version, $allocation)
 
 Allocate a consignment to a specified delivery service
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse**](../Model/AllocateWithCarrierResponse.md)
+[**\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray**](../Model/AllocateWithCarrierResponseArray.md)
 
 ### Authorization
 

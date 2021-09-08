@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
  - [Address](docs/Model/Address.md)
  - [AddressType](docs/Model/AddressType.md)
  - [AllocateWithCarrierResponse](docs/Model/AllocateWithCarrierResponse.md)
+ - [AllocateWithCarrierResponseArray](docs/Model/AllocateWithCarrierResponseArray.md)
  - [AllocateWithCarrierService](docs/Model/AllocateWithCarrierService.md)
  - [AllocateWithQuoteResponse](docs/Model/AllocateWithQuoteResponse.md)
  - [Allocation](docs/Model/Allocation.md)
