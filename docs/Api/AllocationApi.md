@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **allocateWithCarrierService**
-> allocateWithCarrierService($electio_api_version, $allocation)
+> \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse allocateWithCarrierService($electio_api_version, $allocation)
 
 Allocate a consignment to a specified delivery service
 
@@ -35,7 +35,8 @@ $electio_api_version = "1.1"; // string | Electio API Version
 $allocation = new \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService(); // \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService | Consignment to create
 
 try {
-    $apiInstance->allocateWithCarrierService($electio_api_version, $allocation);
+    $result = $apiInstance->allocateWithCarrierService($electio_api_version, $allocation);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AllocationApi->allocateWithCarrierService: ', $e->getMessage(), PHP_EOL;
 }
@@ -51,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse**](../Model/AllocateWithCarrierResponse.md)
 
 ### Authorization
 

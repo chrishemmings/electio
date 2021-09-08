@@ -1,6 +1,6 @@
 <?php
 /**
- * EventViewModel
+ * AllocateWithCarrierResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ChrisHemmings\Electio\ObjectSerializer;
 
 /**
- * EventViewModel Class Doc Comment
+ * AllocateWithCarrierResponse Class Doc Comment
  *
  * @category Class
  * @package  ChrisHemmings\Electio
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EventViewModel implements ModelInterface, ArrayAccess
+class AllocateWithCarrierResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EventViewModel implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EventViewModel';
+    protected static $swaggerModelName = 'AllocateWithCarrierResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,12 @@ class EventViewModel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'time_stamp' => '\DateTime',
-        'code' => 'string',
+        'api_links' => '\ChrisHemmings\Electio\Client\Model\ApiLink[]',
         'description' => 'string',
-        'signed_by' => 'string',
-        'location' => 'string',
+        'consignment_legs' => '\ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]',
+        'carrier_reference' => 'string',
+        'carrier_name' => 'string',
+        'carrier_service_reference' => 'string',
         'carrier_service_name' => 'string'
     ];
 
@@ -71,11 +72,12 @@ class EventViewModel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'time_stamp' => 'date-time',
-        'code' => null,
+        'api_links' => null,
         'description' => null,
-        'signed_by' => null,
-        'location' => null,
+        'consignment_legs' => null,
+        'carrier_reference' => null,
+        'carrier_name' => null,
+        'carrier_service_reference' => null,
         'carrier_service_name' => null
     ];
 
@@ -106,11 +108,12 @@ class EventViewModel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'time_stamp' => 'TimeStamp',
-        'code' => 'Code',
+        'api_links' => 'ApiLinks',
         'description' => 'Description',
-        'signed_by' => 'SignedBy',
-        'location' => 'Location',
+        'consignment_legs' => 'ConsignmentLegs',
+        'carrier_reference' => 'CarrierReference',
+        'carrier_name' => 'CarrierName',
+        'carrier_service_reference' => 'CarrierServiceReference',
         'carrier_service_name' => 'CarrierServiceName'
     ];
 
@@ -120,11 +123,12 @@ class EventViewModel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'time_stamp' => 'setTimeStamp',
-        'code' => 'setCode',
+        'api_links' => 'setApiLinks',
         'description' => 'setDescription',
-        'signed_by' => 'setSignedBy',
-        'location' => 'setLocation',
+        'consignment_legs' => 'setConsignmentLegs',
+        'carrier_reference' => 'setCarrierReference',
+        'carrier_name' => 'setCarrierName',
+        'carrier_service_reference' => 'setCarrierServiceReference',
         'carrier_service_name' => 'setCarrierServiceName'
     ];
 
@@ -134,11 +138,12 @@ class EventViewModel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'time_stamp' => 'getTimeStamp',
-        'code' => 'getCode',
+        'api_links' => 'getApiLinks',
         'description' => 'getDescription',
-        'signed_by' => 'getSignedBy',
-        'location' => 'getLocation',
+        'consignment_legs' => 'getConsignmentLegs',
+        'carrier_reference' => 'getCarrierReference',
+        'carrier_name' => 'getCarrierName',
+        'carrier_service_reference' => 'getCarrierServiceReference',
         'carrier_service_name' => 'getCarrierServiceName'
     ];
 
@@ -202,11 +207,12 @@ class EventViewModel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['time_stamp'] = isset($data['time_stamp']) ? $data['time_stamp'] : null;
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['api_links'] = isset($data['api_links']) ? $data['api_links'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['signed_by'] = isset($data['signed_by']) ? $data['signed_by'] : null;
-        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['consignment_legs'] = isset($data['consignment_legs']) ? $data['consignment_legs'] : null;
+        $this->container['carrier_reference'] = isset($data['carrier_reference']) ? $data['carrier_reference'] : null;
+        $this->container['carrier_name'] = isset($data['carrier_name']) ? $data['carrier_name'] : null;
+        $this->container['carrier_service_reference'] = isset($data['carrier_service_reference']) ? $data['carrier_service_reference'] : null;
         $this->container['carrier_service_name'] = isset($data['carrier_service_name']) ? $data['carrier_service_name'] : null;
     }
 
@@ -235,49 +241,25 @@ class EventViewModel implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets time_stamp
+     * Gets api_links
      *
-     * @return \DateTime
+     * @return \ChrisHemmings\Electio\Client\Model\ApiLink[]
      */
-    public function getTimeStamp()
+    public function getApiLinks()
     {
-        return $this->container['time_stamp'];
+        return $this->container['api_links'];
     }
 
     /**
-     * Sets time_stamp
+     * Sets api_links
      *
-     * @param \DateTime $time_stamp time_stamp
+     * @param \ChrisHemmings\Electio\Client\Model\ApiLink[] $api_links api_links
      *
      * @return $this
      */
-    public function setTimeStamp($time_stamp)
+    public function setApiLinks($api_links)
     {
-        $this->container['time_stamp'] = $time_stamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return string
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param string $code code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
+        $this->container['api_links'] = $api_links;
 
         return $this;
     }
@@ -307,49 +289,97 @@ class EventViewModel implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets signed_by
+     * Gets consignment_legs
      *
-     * @return string
+     * @return \ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]
      */
-    public function getSignedBy()
+    public function getConsignmentLegs()
     {
-        return $this->container['signed_by'];
+        return $this->container['consignment_legs'];
     }
 
     /**
-     * Sets signed_by
+     * Sets consignment_legs
      *
-     * @param string $signed_by signed_by
+     * @param \ChrisHemmings\Electio\Client\Model\ConsignmentLeg[] $consignment_legs consignment_legs
      *
      * @return $this
      */
-    public function setSignedBy($signed_by)
+    public function setConsignmentLegs($consignment_legs)
     {
-        $this->container['signed_by'] = $signed_by;
+        $this->container['consignment_legs'] = $consignment_legs;
 
         return $this;
     }
 
     /**
-     * Gets location
+     * Gets carrier_reference
      *
      * @return string
      */
-    public function getLocation()
+    public function getCarrierReference()
     {
-        return $this->container['location'];
+        return $this->container['carrier_reference'];
     }
 
     /**
-     * Sets location
+     * Sets carrier_reference
      *
-     * @param string $location location
+     * @param string $carrier_reference carrier_reference
      *
      * @return $this
      */
-    public function setLocation($location)
+    public function setCarrierReference($carrier_reference)
     {
-        $this->container['location'] = $location;
+        $this->container['carrier_reference'] = $carrier_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets carrier_name
+     *
+     * @return string
+     */
+    public function getCarrierName()
+    {
+        return $this->container['carrier_name'];
+    }
+
+    /**
+     * Sets carrier_name
+     *
+     * @param string $carrier_name carrier_name
+     *
+     * @return $this
+     */
+    public function setCarrierName($carrier_name)
+    {
+        $this->container['carrier_name'] = $carrier_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets carrier_service_reference
+     *
+     * @return string
+     */
+    public function getCarrierServiceReference()
+    {
+        return $this->container['carrier_service_reference'];
+    }
+
+    /**
+     * Sets carrier_service_reference
+     *
+     * @param string $carrier_service_reference carrier_service_reference
+     *
+     * @return $this
+     */
+    public function setCarrierServiceReference($carrier_service_reference)
+    {
+        $this->container['carrier_service_reference'] = $carrier_service_reference;
 
         return $this;
     }
