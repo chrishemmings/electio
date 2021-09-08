@@ -69,7 +69,7 @@ $apiInstance = new ChrisHemmings\Electio\Api\AllocationApi(
     $config
 );
 $electio_api_version = "1.1"; // string | Electio API Version
-$allocation = array(new \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse()); // \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] | Consignment to create
+$allocation = new \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService(); // \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService | Consignment to create
 
 try {
     $result = $apiInstance->allocateWithCarrierService($electio_api_version, $allocation);
@@ -112,7 +112,6 @@ Class | Method | HTTP request | Description
  - [Address](docs/Model/Address.md)
  - [AddressType](docs/Model/AddressType.md)
  - [AllocateWithCarrierResponse](docs/Model/AllocateWithCarrierResponse.md)
- - [AllocateWithCarrierResponseArray](docs/Model/AllocateWithCarrierResponseArray.md)
  - [AllocateWithCarrierService](docs/Model/AllocateWithCarrierService.md)
  - [AllocateWithQuoteResponse](docs/Model/AllocateWithQuoteResponse.md)
  - [Allocation](docs/Model/Allocation.md)

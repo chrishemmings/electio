@@ -93,11 +93,11 @@ class AllocationApi
      * Allocate a consignment to a specified delivery service
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
      *
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray
+     * @return \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[]
      */
     public function allocateWithCarrierService($electio_api_version, $allocation = null)
     {
@@ -111,15 +111,15 @@ class AllocationApi
      * Allocate a consignment to a specified delivery service
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
      *
      * @throws \ChrisHemmings\Electio\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function allocateWithCarrierServiceWithHttpInfo($electio_api_version, $allocation = null)
     {
-        $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray';
+        $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[]';
         $request = $this->allocateWithCarrierServiceRequest($electio_api_version, $allocation);
 
         try {
@@ -171,7 +171,7 @@ class AllocationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray',
+                        '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -195,7 +195,7 @@ class AllocationApi
      * Allocate a consignment to a specified delivery service
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -216,14 +216,14 @@ class AllocationApi
      * Allocate a consignment to a specified delivery service
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function allocateWithCarrierServiceAsyncWithHttpInfo($electio_api_version, $allocation = null)
     {
-        $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponseArray';
+        $returnType = '\ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[]';
         $request = $this->allocateWithCarrierServiceRequest($electio_api_version, $allocation);
 
         return $this->client
@@ -267,7 +267,7 @@ class AllocationApi
      * Create request for operation 'allocateWithCarrierService'
      *
      * @param  string $electio_api_version Electio API Version (required)
-     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] $allocation Consignment to create (optional)
+     * @param  \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService $allocation Consignment to create (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
