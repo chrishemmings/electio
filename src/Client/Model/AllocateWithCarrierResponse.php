@@ -57,6 +57,7 @@ class AllocateWithCarrierResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'status_code' => 'float',
         'api_links' => '\ChrisHemmings\Electio\Client\Model\ApiLink[]',
         'description' => 'string',
         'consignment_legs' => '\ChrisHemmings\Electio\Client\Model\ConsignmentLeg[]',
@@ -72,6 +73,7 @@ class AllocateWithCarrierResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'status_code' => null,
         'api_links' => null,
         'description' => null,
         'consignment_legs' => null,
@@ -108,6 +110,7 @@ class AllocateWithCarrierResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'status_code' => 'StatusCode',
         'api_links' => 'ApiLinks',
         'description' => 'Description',
         'consignment_legs' => 'ConsignmentLegs',
@@ -123,6 +126,7 @@ class AllocateWithCarrierResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'status_code' => 'setStatusCode',
         'api_links' => 'setApiLinks',
         'description' => 'setDescription',
         'consignment_legs' => 'setConsignmentLegs',
@@ -138,6 +142,7 @@ class AllocateWithCarrierResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'status_code' => 'getStatusCode',
         'api_links' => 'getApiLinks',
         'description' => 'getDescription',
         'consignment_legs' => 'getConsignmentLegs',
@@ -207,6 +212,7 @@ class AllocateWithCarrierResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
         $this->container['api_links'] = isset($data['api_links']) ? $data['api_links'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['consignment_legs'] = isset($data['consignment_legs']) ? $data['consignment_legs'] : null;
@@ -239,6 +245,30 @@ class AllocateWithCarrierResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets status_code
+     *
+     * @return float
+     */
+    public function getStatusCode()
+    {
+        return $this->container['status_code'];
+    }
+
+    /**
+     * Sets status_code
+     *
+     * @param float $status_code status_code
+     *
+     * @return $this
+     */
+    public function setStatusCode($status_code)
+    {
+        $this->container['status_code'] = $status_code;
+
+        return $this;
+    }
 
     /**
      * Gets api_links

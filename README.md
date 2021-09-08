@@ -69,7 +69,7 @@ $apiInstance = new ChrisHemmings\Electio\Api\AllocationApi(
     $config
 );
 $electio_api_version = "1.1"; // string | Electio API Version
-$allocation = new \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService(); // \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierService | Consignment to create
+$allocation = array(new \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse()); // \ChrisHemmings\Electio\Client\Model\AllocateWithCarrierResponse[] | Consignment to create
 
 try {
     $result = $apiInstance->allocateWithCarrierService($electio_api_version, $allocation);
